@@ -5,6 +5,8 @@ margin:0;
 font-family:Arial, Helvetica, sans-serif;
 background:#0f0f14;
 color:white;
+  background:url("techback.jpg");
+  background-attachment: fixed;
 }
 
 a{
@@ -242,6 +244,7 @@ padding:60px 20px;
 
 
 }
+
 
 
 
