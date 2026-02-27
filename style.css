@@ -4,7 +4,7 @@ body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
 color:white;
-  background:url(images/techback.jpg);
+  background:url("images/techback.jpg");
   background-attachment: fixed;
 }
 
@@ -243,6 +243,7 @@ padding:60px 20px;
 
 
 }
+
 
 
 
