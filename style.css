@@ -27,7 +27,7 @@ z-index:1000;
 }
 
 nav h2{
-color:#0a7cff;
+color:black;
 }
 
 nav ul{
@@ -37,7 +37,7 @@ list-style:none;
 }
 
 nav ul li a:hover{
-color:#0a7cff;
+color:black;
 }
 
 /* ===== HERO ===== */
@@ -244,6 +244,7 @@ padding:60px 20px;
 
 
 }
+
 
 
 
