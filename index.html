@@ -57,7 +57,7 @@
 <h3>Cybersecurity Trends</h3>
 <p>How to protect your digital identity in 2026.</p>
 </div>
-
+<div class="card reveal"> </div>
 </div>
 </section>
 
@@ -138,9 +138,28 @@ nav.classList.toggle("scrolled", window.scrollY > 50);
 });
 
 </script>
+    <script>
+function revealOnScroll(){
+const reveals = document.querySelectorAll(".reveal");
+
+reveals.forEach(el=>{
+const windowHeight = window.innerHeight;
+const elementTop = el.getBoundingClientRect().top;
+if(elementTop < windowHeight - 100){
+el.classList.add("active");
+}
+});
+}
+
+window.addEventListener("scroll", revealOnScroll);
+</script>
+    <a href="https://wa.me/50946126417" class="whatsapp-float" target="_blank">
+💬
+</a>
 </body>
 
 </html>
+
 
 
 
