@@ -339,3 +339,25 @@ background:#ef4444;
 position:relative;
 }
 
+/* ===== CART ICON ===== */
+
+.cart-icon{
+position:relative;
+font-size:20px;
+cursor:pointer;
+}
+
+.cart-count{
+position:absolute;
+top:-8px;
+right:-10px;
+background:#ef4444;
+color:white;
+font-size:12px;
+width:18px;
+height:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+}
