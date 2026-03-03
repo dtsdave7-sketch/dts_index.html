@@ -269,3 +269,13 @@ font-size:28px;
 }
 
 }
+/* ===== ALTERNATE SECTIONS ===== */
+
+.section-light{
+background:#ffffff;
+}
+
+.section-soft{
+background:linear-gradient(to right,#f8fafc,#eef2ff);
+}
+
