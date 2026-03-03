@@ -314,4 +314,28 @@ z-index:1000;
 transform:scale(1.1);
 }
 
+/* ===== PRODUCT BADGE ===== */
+
+.badge{
+position:absolute;
+top:15px;
+left:15px;
+padding:5px 10px;
+font-size:12px;
+font-weight:bold;
+border-radius:4px;
+color:white;
+}
+
+.badge.new{
+background:#0a7cff;
+}
+
+.badge.hot{
+background:#ef4444;
+}
+
+.card{
+position:relative;
+}
 
