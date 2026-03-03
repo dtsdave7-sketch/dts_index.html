@@ -39,18 +39,17 @@ list-style:none;
 nav ul li a:hover{
 color:black;
 }
-.logo{
+/* ===== LOGO NAVBAR ===== */
 
+.logo{
 display:flex;
 align-items:center;
-gap:300px;
-
 }
 
 .logo img{
-
-height:300px;
-
+height:55px;
+width:auto;
+object-fit:contain;
 }
 
 /* ===== HERO ===== */
@@ -257,6 +256,7 @@ padding:60px 20px;
 
 
 }
+
 
 
 
