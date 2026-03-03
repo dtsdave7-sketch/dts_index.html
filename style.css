@@ -278,4 +278,16 @@ background:#ffffff;
 .section-soft{
 background:linear-gradient(to right,#f8fafc,#eef2ff);
 }
+/* ===== SCROLL ANIMATION ===== */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
 
