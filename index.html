@@ -8,17 +8,28 @@
 </head>
 <body>
 
-<nav>
-    <div class="logo">
+<nav id="navbar">
+    
+    <div class="nav-left">
         <img src="images/dts-logo.png" alt="DTS Logo">
+        <span>DAVE TECH SERVICES</span>
     </div>
 
-    <ul>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Store</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
+    <div class="nav-right">
+        <ul id="menu">
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Store</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <a href="#" class="nav-btn">Shop Now</a>
+
+        <div class="burger" onclick="toggleMenu()">
+            ☰
+        </div>
+    </div>
+
 </nav>
 
 <section class="hero">
@@ -113,4 +124,5 @@
 </body>
 
 </html>
+
 
