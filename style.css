@@ -51,7 +51,105 @@ height:55px;
 width:auto;
 object-fit:contain;
 }
+/* ===== PREMIUM NAVBAR ===== */
 
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 60px;
+background:rgba(17,17,17,0.95);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:1000;
+transition:0.3s ease;
+}
+
+/* Scroll effect */
+nav.scrolled{
+background:#000;
+box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+/* Left side */
+.nav-left{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.nav-left img{
+height:45px;
+}
+
+.nav-left span{
+font-weight:bold;
+color:#0a7cff;
+letter-spacing:1px;
+}
+
+/* Right side */
+.nav-right{
+display:flex;
+align-items:center;
+gap:25px;
+}
+
+.nav-right ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+.nav-right ul li a:hover{
+color:#0a7cff;
+}
+
+/* Shop button */
+.nav-btn{
+background:#0a7cff;
+padding:8px 18px;
+border-radius:6px;
+font-size:14px;
+}
+
+.nav-btn:hover{
+background:#055fd1;
+}
+
+/* Burger */
+.burger{
+display:none;
+font-size:24px;
+cursor:pointer;
+}
+@media(max-width:768px){
+
+.nav-right ul{
+display:none;
+flex-direction:column;
+position:absolute;
+top:70px;
+right:20px;
+background:#111;
+padding:20px;
+border-radius:10px;
+}
+
+.nav-right ul.active{
+display:flex;
+}
+
+.burger{
+display:block;
+}
+
+.nav-btn{
+display:none;
+}
+
+}
 /* ===== HERO ===== */
 
 .hero{
@@ -256,6 +354,7 @@ padding:60px 20px;
 
 
 }
+
 
 
 
