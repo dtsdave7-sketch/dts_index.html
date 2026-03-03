@@ -3,7 +3,7 @@
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-color:white;
+color:black;
   background:url("images/techback.jpg");
   background-attachment: fixed;
 }
@@ -20,7 +20,7 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 40px;
-background:white;
+background:black;
 position:sticky;
 top:0;
 z-index:1000;
@@ -244,6 +244,7 @@ padding:60px 20px;
 
 
 }
+
 
 
 
