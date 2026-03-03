@@ -47,7 +47,7 @@ align-items:center;
 }
 
 .logo img{
-height:55px;
+height:250px;
 width:auto;
 object-fit:contain;
 }
@@ -68,7 +68,7 @@ transition:0.3s ease;
 
 /* Scroll effect */
 nav.scrolled{
-background:#000;
+background:#f2eded;
 box-shadow:0 5px 20px rgba(0,0,0,0.5);
 }
 
@@ -132,7 +132,7 @@ flex-direction:column;
 position:absolute;
 top:70px;
 right:20px;
-background:#111;
+background:#f2eded;
 padding:20px;
 border-radius:10px;
 }
@@ -353,6 +353,7 @@ padding:60px 20px;
 
 
 }
+
 
 
 
