@@ -20,14 +20,14 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:15px 40px;
-background:black;
+background:white;
 position:sticky;
 top:0;
 z-index:1000;
 }
 
 nav h2{
-color:black;
+color:white;
 }
 
 nav ul{
@@ -354,6 +354,7 @@ padding:60px 20px;
 
 
 }
+
 
 
 
