@@ -1,39 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DTS - Dave Tech Services</title>
+<title>Checkout | Dave Tech Services</title>
+
 <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
+<!-- NAVBAR -->
 <nav id="navbar">
-    <div class="cart-icon">
+
+<div class="nav-left">
+<img src="images/dts-logo.png" alt="DTS Logo">
+</div>
+
+<div class="nav-right">
+<ul id="menu">
+<li><a href="index.html">Accueil</a></li>
+<li><a href="store.html">Store</a></li>
+<li><a href="checkout.html">Checkout</a></li>
+</ul>
+
+<div class="cart-icon">
 🛒
 <span class="cart-count">0</span>
 </div>
-    <div class="nav-left">
-        <img src="images/dts-logo.png" alt="DTS Logo">
-        
-    </div>
 
-    <div class="nav-right">
-        <ul id="menu">
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">Store</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-          <li><a href="#">Checkout</a></li>
-        </ul>
+<div class="burger" onclick="toggleMenu()">
+☰
+</div>
+</div>
 
-        <a href="#" class="nav-btn">Shop Now</a>
+</nav>
 
-        <div class="burger" onclick="toggleMenu()">
-            ☰
-        </div>
-    </div>
+<!-- CHECKOUT SECTION -->
 <section class="checkout">
 
 <h1>Checkout</h1>
@@ -48,9 +53,21 @@
 
 </form>
 
-
 </section>
-  </body>
 
+<!-- FOOTER -->
+<footer>
+<div class="footer-bottom">
+© 2026 Dave Tech Services. All rights reserved.
+</div>
+</footer>
+
+<!-- BURGER SCRIPT -->
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
 </html>
-
