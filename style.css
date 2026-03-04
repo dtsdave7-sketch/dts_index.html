@@ -22,7 +22,7 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:200px 200px;
+padding:100px 200px;
 background:white;
 box-shadow:0 2px 10px rgba(0,0,0,0.05);
 position:sticky;
@@ -361,6 +361,7 @@ align-items:center;
 justify-content:center;
 border-radius:50%;
 }
+
 
 
 
