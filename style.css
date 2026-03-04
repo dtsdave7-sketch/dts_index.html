@@ -5,10 +5,11 @@
 /* ===== GLOBAL ===== */
 
 body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#f5f7fb;
-color:#111827;
+font-family:'Inter', sans-serif;
+}
+
+h1,h2,h3{
+font-family:'Playfair Display', serif;
 }
 
 a{
@@ -425,6 +426,7 @@ font-size:16px;
 outline:none;
 border-color:#0a7cff;
 }
+
 
 
 
