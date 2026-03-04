@@ -159,9 +159,29 @@ window.addEventListener("scroll", revealOnScroll);
     <a href="https://wa.me/50946126417" class="whatsapp-float" target="_blank">
 💬
 </a>
+    <script>
+let cart = [];
+
+document.querySelectorAll(".add-to-cart").forEach(btn=>{
+btn.addEventListener("click", function(){
+
+const name = this.dataset.name;
+const price = parseFloat(this.dataset.price);
+
+cart.push({name, price});
+updateCartUI();
+
+});
+});
+
+function updateCartUI(){
+document.querySelector(".cart-count").textContent = cart.length;
+}
+</script>
 </body>
 
 </html>
+
 
 
 
