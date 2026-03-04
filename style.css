@@ -33,11 +33,11 @@ z-index:1000;
 .nav-left{
 display:flex;
 align-items:center;
-gap:15px;
+gap:150px;
 }
 
 .nav-left img{
-height:50px;
+height:150px;
 }
 
 .nav-left span{
@@ -361,4 +361,5 @@ align-items:center;
 justify-content:center;
 border-radius:50%;
 }
+
 
