@@ -80,48 +80,11 @@ Commander via WhatsApp
 <div class="footer-bottom">
 © 2026 Dave Tech Services. All rights reserved.
 </div>
-  <!-- SCRIPT -->
+
+</footer>
+
 <script>
-// FUNCTION TO LOAD PRODUCT FROM STORE PAGE
-const urlParams = new URLSearchParams(window.location.search);
-const name = urlParams.get('name');
-const price = urlParams.get('price');
-const img = urlParams.get('img');
-const desc = urlParams.get('desc') || "High quality product from DTS.";
-
-// FILL PRODUCT DETAIL
-document.getElementById("detailName").textContent = name;
-document.getElementById("detailPrice").textContent = "$" + price;
-document.getElementById("detailImg").src = img;
-document.getElementById("detailAddToCart").dataset.name = name;
-document.getElementById("detailAddToCart").dataset.price = price;
-document.getElementById("detailAddToCart").dataset.img = img;
-document.getElementById("detailDesc").textContent = desc;
-
-// WhatsApp link
-document.getElementById("whatsappBtn").href = 
-`https://wa.me/50946126417?text=Bonjour%20je%20veux%20commander%20${encodeURIComponent(name)}%20pour%20${encodeURIComponent(price)}$`;
-
-// CART SYSTEM
-function getCart(){ return JSON.parse(localStorage.getItem("cart")) || []; }
-function saveCart(cart){ localStorage.setItem("cart", JSON.stringify(cart)); }
-function updateCartCount(){ document.querySelector(".cart-count").textContent = getCart().length; }
-
-document.getElementById("detailAddToCart").addEventListener("click", function(){
-const name = this.dataset.name;
-const price = parseFloat(this.dataset.price);
-const img = this.dataset.img;
-
-let cart = getCart();
-cart.push({name, price, img});
-saveCart(cart);
-updateCartCount();
-alert(name + " added to cart 🛒");
-});
-
-updateCartCount();
-</script>
-  const cartIcon = document.querySelector(".cart-icon");
+const cartIcon = document.querySelector(".cart-icon");
 const cartPanel = document.getElementById("cart-panel");
 const cartItemsContainer = document.getElementById("cart-items");
 const cartTotal = document.getElementById("cart-total");
@@ -140,37 +103,32 @@ localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function renderCart(){
-
 let cart = getCart();
 cartItemsContainer.innerHTML = "";
 
 let total = 0;
 
 cart.forEach(item => {
-
 total += item.price;
 
 cartItemsContainer.innerHTML += `
 <div class="cart-item">
-<img src="${item.img}">
-<div class="cart-item-info">
+<img src="${item.img}" width="50">
+<div>
 <h4>${item.name}</h4>
 <p>$${item.price}</p>
 </div>
 </div>
 `;
-
 });
 
 cartTotal.textContent = total;
-
 }
-</footer>
-
-
+</script>
 
 </body>
 </html>
+
 
 
 
