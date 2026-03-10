@@ -196,9 +196,39 @@ updateCartCount();
 </script>
 
 </script>
+        <script>
+
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+const grid = document.querySelector(".grid");
+
+products.forEach(product => {
+
+grid.innerHTML += `
+<div class="card">
+
+<div class="product-image">
+<img src="${product.img}">
+</div>
+
+<h3>${product.name}</h3>
+
+<p>$${product.price}</p>
+
+<a href="product.html?name=${product.name}&price=${product.price}&img=${product.img}" class="btn">
+View
+</a>
+
+</div>
+`;
+
+});
+
+</script>
 </body>
 
 </html>
+
 
 
 
