@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DTS Store</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -26,6 +29,20 @@
 
 </nav>
 
+
+<div id="cartPanel" class="cart-panel">
+
+<h2>Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<p>Total: $<span id="cartTotal">0</span></p>
+
+<a id="checkoutBtn" class="btn">Checkout WhatsApp</a>
+
+</div>
+
+
 <section class="section">
 
 <h2>Our Products</h2>
@@ -41,15 +58,13 @@ let products = JSON.parse(localStorage.getItem("products")) || [];
 
 const grid = document.querySelector(".grid");
 
-products.forEach(product => {
+products.forEach(product=>{
 
 grid.innerHTML += `
 
 <div class="card">
 
-<div class="product-image">
-<img src="${product.image}" alt="${product.name}">
-</div>
+<img src="${product.image}">
 
 <h3>${product.name}</h3>
 
@@ -59,11 +74,128 @@ grid.innerHTML += `
 View
 </a>
 
+<button class="btn addCart"
+data-name="${product.name}"
+data-price="${product.price}"
+data-img="${product.image}">
+Add to Cart
+</button>
+
 </div>
 
 `;
 
 });
+
+
+/* CART SYSTEM */
+
+function getCart(){
+return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart){
+localStorage.setItem("cart",JSON.stringify(cart));
+}
+
+function updateCart(){
+
+let cart=getCart();
+
+document.querySelector(".cart-count").textContent=cart.length;
+
+let items="";
+let total=0;
+
+cart.forEach((item,i)=>{
+
+total+=parseFloat(item.price);
+
+items+=`
+
+<div class="cart-item">
+
+<img src="${item.img}" width="50">
+
+${item.name} - $${item.price}
+
+<button onclick="removeItem(${i})">❌</button>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("cartItems").innerHTML=items;
+
+document.getElementById("cartTotal").textContent=total;
+
+}
+
+updateCart();
+
+
+document.addEventListener("click",function(e){
+
+if(e.target.classList.contains("addCart")){
+
+let name=e.target.dataset.name;
+let price=e.target.dataset.price;
+let img=e.target.dataset.img;
+
+let cart=getCart();
+
+cart.push({name,price,img});
+
+saveCart(cart);
+
+updateCart();
+
+alert(name+" added to cart");
+
+}
+
+});
+
+
+function removeItem(i){
+
+let cart=getCart();
+
+cart.splice(i,1);
+
+saveCart(cart);
+
+updateCart();
+
+}
+
+
+document.querySelector(".cart-icon").onclick=()=>{
+
+document.getElementById("cartPanel").classList.toggle("open");
+
+};
+
+
+/* CHECKOUT WHATSAPP */
+
+document.getElementById("checkoutBtn").onclick=function(){
+
+let cart=getCart();
+
+let message="Bonjour je veux commander:%0A";
+
+cart.forEach(item=>{
+
+message+=item.name+" - $"+item.price+"%0A";
+
+});
+
+window.open("https://wa.me/50946126417?text="+message);
+
+};
 
 </script>
 
