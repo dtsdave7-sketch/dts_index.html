@@ -140,39 +140,72 @@ Add to Cart
 
 </footer>
 <script>
-const buttons = document.querySelectorAll(".view-product");
 
-buttons.forEach(btn=>{
-btn.addEventListener("click", function(){
+const params = new URLSearchParams(window.location.search);
 
-const name = this.dataset.name;
-const price = this.dataset.price;
-const img = this.dataset.img;
+const name = params.get("name");
+const price = params.get("price");
+const img = params.get("img");
 
 document.getElementById("detailName").textContent = name;
 document.getElementById("detailPrice").textContent = "$" + price;
 document.getElementById("detailImg").src = img;
 
-const cartBtn = document.getElementById("cartBtn");
+document.getElementById("productTitle").textContent = name + " | DTS";
+
+const cartBtn = document.getElementById("detailAddToCart");
 
 cartBtn.dataset.name = name;
 cartBtn.dataset.price = price;
 cartBtn.dataset.img = img;
 
-document.getElementById("productDetail").style.display = "block";
+const whatsapp = document.getElementById("whatsappBtn");
 
-window.scrollTo({
-top: document.getElementById("productDetail").offsetTop - 100,
-behavior: "smooth"
-});
+whatsapp.href =
+"https://wa.me/50946126417?text=Bonjour%20je%20veux%20commander%20" + name;
+
+</script>
+           <script>
+
+function getCart(){
+return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart){
+localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function updateCartCount(){
+const cart = getCart();
+document.querySelector(".cart-count").textContent = cart.length;
+}
+
+document.getElementById("detailAddToCart").addEventListener("click", function(){
+
+const name = this.dataset.name;
+const price = parseFloat(this.dataset.price);
+const img = this.dataset.img;
+
+let cart = getCart();
+
+cart.push({name, price, img});
+
+saveCart(cart);
+updateCartCount();
+
+alert(name + " added to cart 🛒");
 
 });
-});
+
+updateCartCount();
+
+</script>
 
 </script>
 </body>
 
 </html>
+
 
 
 
