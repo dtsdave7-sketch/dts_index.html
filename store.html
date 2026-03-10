@@ -40,33 +40,47 @@
 <div class="grid">
 
 <div class="card">
+
 <div class="product-image">
 <img src="images/iphone13.jpg" alt="iPhone 13">
 </div>
+
 <h3>iPhone 13</h3>
 <p>$650</p>
-<a href="product.html?name=iPhone13&price=650&img=images/iphone13.jpg" class="btn">
+
+<button class="btn view-product"
+data-name="iPhone 13"
+data-price="650"
+data-img="images/iphone13.jpg">
 View
-</a>
+</button>
+
 </div>
 
 <div class="card">
+
 <div class="product-image">
 <img src="images/samsung-a14.jpg" alt="Samsung A14">
 </div>
+
 <h3>Samsung A14</h3>
 <p>$220</p>
-<a href="product.html?name=samsung-a14&price=650&img=images/samsung-a14.jpg" class="btn">
+
+<button class="btn view-product"
+data-name="Samsung A14"
+data-price="220"
+data-img="images/samsung-a14.jpg">
 View
-</a>
+</button>
+
 </div>
 
 </div>
 
 </section>
 
-<!-- PRODUCT DETAIL SECTION -->
 <section class="product-detail" id="productDetail" style="display:none;">
+
 <div class="product-container">
 
 <div class="product-gallery">
@@ -74,10 +88,17 @@ View
 </div>
 
 <div class="product-info">
+
 <h1 id="detailName"></h1>
 <p class="price" id="detailPrice"></p>
 
-<button class="btn add-to-cart">Add to Cart</button>
+<button class="btn add-to-cart"
+id="cartBtn"
+data-name=""
+data-price=""
+data-img="">
+Add to Cart
+</button>
 
 </div>
 
@@ -119,7 +140,6 @@ View
 
 </footer>
 <script>
-
 const buttons = document.querySelectorAll(".view-product");
 
 buttons.forEach(btn=>{
@@ -133,6 +153,12 @@ document.getElementById("detailName").textContent = name;
 document.getElementById("detailPrice").textContent = "$" + price;
 document.getElementById("detailImg").src = img;
 
+const cartBtn = document.getElementById("cartBtn");
+
+cartBtn.dataset.name = name;
+cartBtn.dataset.price = price;
+cartBtn.dataset.img = img;
+
 document.getElementById("productDetail").style.display = "block";
 
 window.scrollTo({
@@ -144,46 +170,10 @@ behavior: "smooth"
 });
 
 </script>
-        <script>
-
-function getCart(){
-return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function saveCart(cart){
-localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function updateCartCount(){
-const cart = getCart();
-document.querySelector(".cart-count").textContent = cart.length;
-}
-
-document.querySelectorAll(".add-to-cart").forEach(button=>{
-button.addEventListener("click", function(){
-
-const name = this.dataset.name;
-const price = parseFloat(this.dataset.price);
-const img = this.dataset.img;
-
-let cart = getCart();
-
-cart.push({name, price, img});
-
-saveCart(cart);
-updateCartCount();
-
-alert(name + " added to cart 🛒");
-
-});
-});
-
-updateCartCount();
-
-</script>
 </body>
 
 </html>
+
 
 
 
