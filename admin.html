@@ -2,10 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>DTS Admin</title>
+<title>DTS Admin Dashboard</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<h1>DTS Admin Dashboard</h1>
+
+<section class="admin-panel">
 
 <h2>Add Product</h2>
 
@@ -15,37 +19,39 @@
 
 <input type="number" id="price" placeholder="Price" required>
 
-<input type="text" id="image" placeholder="Image URL (images/product.jpg)" required>
+<input type="text" id="image" placeholder="Image URL" required>
+
+<input type="number" id="stock" placeholder="Stock Quantity" required>
 
 <button type="submit">Add Product</button>
 
 </form>
 
-<script>
+</section>
 
-const form = document.getElementById("productForm");
 
-form.addEventListener("submit", function(e){
+<section>
 
-e.preventDefault();
+<h2>Products List</h2>
 
-const name = document.getElementById("name").value;
-const price = document.getElementById("price").value;
-const img = document.getElementById("image").value;
+<table border="1">
 
-let products = JSON.parse(localStorage.getItem("products")) || [];
+<thead>
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>Stock</th>
+<th>Actions</th>
+</tr>
+</thead>
 
-products.push({name,price,img});
+<tbody id="productTable"></tbody>
 
-localStorage.setItem("products", JSON.stringify(products));
+</table>
 
-alert("Product added successfully");
+</section>
 
-form.reset();
-
-});
-
-</script>
+<script src="admin.js"></script>
 
 </body>
 </html>
