@@ -39,7 +39,7 @@
 <div class="card">
 
 <div class="product-image">
-<img src="${product.image}" alt="${product.name}">
+<img src="images/iphone13.jpg" alt="iPhone 13">
 </div>
 
 <h3>iPhone 13</h3>
@@ -56,7 +56,7 @@ View
 <div class="card">
 
 <div class="product-image">
-<img src="${product.image}" alt="${product.name}">
+<img src="images/samsung-a14.jpg" alt="Samsung A14">
 </div>
 
 <h3>Samsung A14</h3>
@@ -135,117 +135,27 @@ Add to Cart
 </footer>
 <script>
 
-const params = new URLSearchParams(window.location.search);
-
-const name = params.get("name");
-const price = params.get("price");
-const img = params.get("img");
-
-document.getElementById("detailName").textContent = name;
-document.getElementById("detailPrice").textContent = "$" + price;
-document.getElementById("detailImg").src = img;
-
-document.getElementById("productTitle").textContent = name + " | DTS";
-
-const cartBtn = document.getElementById("detailAddToCart");
-
-cartBtn.dataset.name = name;
-cartBtn.dataset.price = price;
-cartBtn.dataset.img = img;
-
-const whatsapp = document.getElementById("whatsappBtn");
-
-whatsapp.href =
-"https://wa.me/50946126417?text=Bonjour%20je%20veux%20commander%20" + name;
-
-</script>
-           <script>
-
-function getCart(){
-return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function saveCart(cart){
-localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function updateCartCount(){
-const cart = getCart();
-document.querySelector(".cart-count").textContent = cart.length;
-}
-
-document.getElementById("detailAddToCart").addEventListener("click", function(){
-
-const name = this.dataset.name;
-const price = parseFloat(this.dataset.price);
-const img = this.dataset.img;
-
-let cart = getCart();
-
-cart.push({name, price, img});
-
-saveCart(cart);
-updateCartCount();
-
-alert(name + " added to cart 🛒");
-
-});
-
-updateCartCount();
-
-</script>
-
-</script>
-        <script>
-
 let products = JSON.parse(localStorage.getItem("products")) || [];
 
 const grid = document.querySelector(".grid");
+
+grid.innerHTML = "";
 
 products.forEach(product => {
 
 grid.innerHTML += `
+
 <div class="card">
 
 <div class="product-image">
-<img src="${product.img}">
+<img src="${product.image}" alt="${product.name}">
 </div>
 
 <h3>${product.name}</h3>
 
 <p>$${product.price}</p>
 
-<a href="product.html?name=${product.name}&price=${product.price}&img=${product.img}" class="btn">
-View
-</a>
-
-</div>
-`;
-
-});
-
-</script>
-        <script>
-
-let products = JSON.parse(localStorage.getItem("products")) || [];
-
-const grid = document.querySelector(".grid");
-
-products.forEach(product=>{
-
-grid.innerHTML += `
-
-<div class="card">
-
-<div class="product-image">
-<img src="${product.image}">
-</div>
-
-<h3>${product.name}</h3>
-
-<p>$${product.price}</p>
-
-<a href="product.html?name=${product.name}&price=${product.price}&img=${product.image}" class="btn">
+<a href="product.html?name=${encodeURIComponent(product.name)}&price=${product.price}&img=${product.image}" class="btn">
 View
 </a>
 
@@ -259,8 +169,6 @@ View
 </body>
 
 </html>
-
-
 
 
 
