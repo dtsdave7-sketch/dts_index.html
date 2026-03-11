@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="productTitle">Product</title>
 <link rel="stylesheet" href="style.css">
+  <script src="js/product.js"></script>
 </head>
 
 <body>
@@ -22,30 +23,10 @@
 
 </div>
 
-<script src="js/product.js"></script>
 
-
-<script>
-
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get("id");
-
-let products = JSON.parse(localStorage.getItem("products")) || [];
-
-let product = products.find(p => p.id == productId);
-
-if(product){
-
-document.getElementById("productName").innerText = product.name;
-document.getElementById("productPrice").innerText = "$"+product.price;
-document.getElementById("productImage").src = product.image;
-document.getElementById("productDesc").innerText = product.description;
-
-}
-
-</script>>
 
 </body>
 </html>
+
 
 
