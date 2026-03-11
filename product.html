@@ -28,47 +28,24 @@ Commander sur WhatsApp
 
 <script>
 
-const params = new URLSearchParams(window.location.search);
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id");
 
-const name = params.get("name");
-const price = params.get("price");
-const img = params.get("img");
+let products = JSON.parse(localStorage.getItem("products")) || [];
 
-document.getElementById("detailName").textContent = name;
-document.getElementById("detailPrice").textContent = "$" + price;
-document.getElementById("detailImg").src = img;
+let product = products.find(p => p.id == productId);
 
-document.getElementById("productTitle").textContent = name;
+if(product){
 
-document.getElementById("whatsappBtn").href =
-"https://wa.me/50946126417?text=Bonjour je veux commander " + name;
+document.getElementById("productName").innerText = product.name;
+document.getElementById("productPrice").innerText = "$"+product.price;
+document.getElementById("productImage").src = product.image;
+document.getElementById("productDesc").innerText = product.description;
 
-
-function getCart(){
-return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
-function saveCart(cart){
-localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-document.getElementById("addCart").addEventListener("click", function(){
-
-let cart = getCart();
-
-cart.push({
-name:name,
-price:price,
-img:img
-});
-
-saveCart(cart);
-
-alert("Product added to cart");
-
-});
-
-</script>
+</script>>
 
 </body>
 </html>
+
