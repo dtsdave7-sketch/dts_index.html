@@ -70,9 +70,7 @@ grid.innerHTML += `
 
 <p>$${product.price}</p>
 
-<a href="product.html?name=${encodeURIComponent(product.name)}&price=${product.price}&img=${product.image}" class="btn">
-View
-</a>
+<a class="btn" href="product.html?id=${product.id}">View</a>
 
 <button class="btn addCart"
 data-name="${product.name}"
@@ -201,3 +199,4 @@ window.open("https://wa.me/50946126417?text="+message);
 
 </body>
 </html>
+
