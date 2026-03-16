@@ -1,15 +1,23 @@
 /* ===============================
-   DAVE TECH SERVICES - CLEAN PRO
+   DTS STORE - CLEAN PRO CSS
 ================================ */
 
 /* ===== GLOBAL ===== */
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-font-family:'Inter', sans-serif;
+font-family:'Inter',sans-serif;
+background:#f8fafc;
+color:#111827;
 }
 
 h1,h2,h3{
-font-family:'Playfair Display', serif;
+font-family:'Playfair Display',serif;
 }
 
 a{
@@ -23,7 +31,7 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:30px 100px;
+padding:20px 80px;
 background:white;
 box-shadow:0 2px 10px rgba(0,0,0,0.05);
 position:sticky;
@@ -31,62 +39,24 @@ top:0;
 z-index:1000;
 }
 
-.nav-left{
-display:flex;
-align-items:center;
-gap:50px;
+nav img{
+height:45px;
 }
 
-.nav-left img{
-height:50px;
-}
-
-.nav-left span{
-font-weight:bold;
-font-size:18px;
-color:#111827;
-}
-
-.nav-right{
-display:flex;
-align-items:center;
-gap:25px;
-}
-
-.nav-right ul{
+nav ul{
 display:flex;
 gap:25px;
 list-style:none;
 }
 
-.nav-right ul li a{
-color:#374151;
+nav ul li a{
 font-weight:500;
+color:#374151;
+transition:0.2s;
 }
 
-.nav-right ul li a:hover{
+nav ul li a:hover{
 color:#0a7cff;
-}
-
-.nav-btn{
-background:#0a7cff;
-color:white;
-padding:8px 18px;
-border-radius:6px;
-font-size:14px;
-transition:0.3s;
-}
-
-.nav-btn:hover{
-background:#055fd1;
-}
-
-/* Burger */
-
-.burger{
-display:none;
-font-size:24px;
-cursor:pointer;
 }
 
 /* ===== HERO ===== */
@@ -98,31 +68,12 @@ background:linear-gradient(to right,#ffffff,#eef2ff);
 }
 
 .hero h1{
-font-size:42px;
-margin-bottom:15px;
+font-size:40px;
+margin-bottom:10px;
 }
 
 .hero p{
 color:#6b7280;
-font-size:18px;
-max-width:600px;
-margin:auto;
-}
-
-/* ===== BUTTON ===== */
-
-.btn{
-background:#0a7cff;
-color:white;
-padding:12px 25px;
-border-radius:6px;
-display:inline-block;
-margin-top:20px;
-transition:0.3s;
-}
-
-.btn:hover{
-background:#055fd1;
 }
 
 /* ===== SECTION ===== */
@@ -134,55 +85,42 @@ padding:80px 60px;
 .section h2{
 margin-bottom:40px;
 font-size:28px;
-color:#111827;
 }
 
 /* ===== GRID ===== */
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:30px;
-align-items:stretch;
 }
 
-/* ===== CARD ===== */
-
-/* ===== GRID ===== */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-gap:30px;
-align-items:stretch;
-}
-
-/* ===== CARD ===== */
+/* ===== PRODUCT CARD ===== */
 
 .card{
 background:white;
+border-radius:14px;
 padding:20px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-transition:0.3s;
-text-align:center;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+transition:all 0.35s ease;
+position:relative;
+overflow:hidden;
 }
 
+/* Apple-style hover */
+
 .card:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 30px rgba(0,0,0,0.08);
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 20px 40px rgba(0,0,0,0.12);
 }
 
 /* ===== PRODUCT IMAGE ===== */
 
 .product-image{
 width:100%;
-height:200px;
+height:220px;
 background:#f3f4f6;
-border-radius:10px;
+border-radius:12px;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -191,169 +129,55 @@ margin-bottom:15px;
 }
 
 .product-image img{
-width:100%;
-height:100%;
+max-width:90%;
+max-height:90%;
 object-fit:contain;
+transition:transform 0.4s ease;
+}
+
+/* Premium zoom */
+
+.card:hover img{
+transform:scale(1.08);
 }
 
 /* ===== PRODUCT TEXT ===== */
 
 .card h3{
 font-size:18px;
-margin-bottom:10px;
-color:#111827;
+margin-bottom:6px;
 }
 
 .card p{
-font-size:16px;
 color:#6b7280;
-margin-bottom:15px;
+margin-bottom:10px;
 }
 
 /* ===== BUTTON ===== */
 
 .btn{
+display:inline-block;
+padding:10px 20px;
 background:#0a7cff;
 color:white;
-padding:10px 18px;
 border-radius:6px;
-display:inline-block;
-transition:0.3s;
+font-size:14px;
+transition:0.25s;
 }
 
 .btn:hover{
 background:#055fd1;
 }
-/* ===== FOOTER ===== */
 
-footer{
-background:white;
-padding:60px;
-margin-top:80px;
-border-top:1px solid #e5e7eb;
-}
-
-.footer-container{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:40px;
-}
-
-footer h3{
-color:#111827;
-}
-
-footer ul{
-list-style:none;
-padding:0;
-}
-
-footer ul li{
-margin-bottom:8px;
-color:#6b7280;
-}
-
-.footer-bottom{
-text-align:center;
-margin-top:40px;
-color:#9ca3af;
-}
-
-/* ===== MOBILE ===== */
-
-@media(max-width:768px){
-
-nav{
-padding:15px 20px;
-}
-
-.nav-right ul{
-display:none;
-flex-direction:column;
-position:absolute;
-top:70px;
-right:20px;
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-
-.nav-right ul.active{
-display:flex;
-}
-
-.burger{
-display:block;
-}
-
-.nav-btn{
-display:none;
-}
-
-.section{
-padding:60px 20px;
-}
-
-.hero h1{
-font-size:28px;
-}
-
-}
-/* ===== ALTERNATE SECTIONS ===== */
-
-.section-light{
-background:#ffffff;
-}
-
-.section-soft{
-background:linear-gradient(to right,#f8fafc,#eef2ff);
-}
-/* ===== SCROLL ANIMATION ===== */
-
-.reveal{
-opacity:0;
-transform:translateY(40px);
-transition:all 0.8s ease;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-/* ===== FLOATING WHATSAPP ===== */
-
-.whatsapp-float{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-color:white;
-width:55px;
-height:55px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-font-size:24px;
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
-transition:0.3s;
-z-index:1000;
-}
-
-.whatsapp-float:hover{
-transform:scale(1.1);
-}
-
-/* ===== PRODUCT BADGE ===== */
+/* ===== BADGES ===== */
 
 .badge{
 position:absolute;
-top:15px;
-left:15px;
-padding:5px 10px;
-font-size:12px;
-font-weight:bold;
+top:12px;
+left:12px;
+padding:4px 10px;
+font-size:11px;
+font-weight:600;
 border-radius:4px;
 color:white;
 }
@@ -366,10 +190,6 @@ background:#0a7cff;
 background:#ef4444;
 }
 
-.card{
-position:relative;
-}
-
 /* ===== CART ICON ===== */
 
 .cart-icon{
@@ -377,92 +197,19 @@ cursor:pointer;
 font-size:20px;
 }
 
-.cart-panel{
+/* ===== CART PANEL ===== */
 
-position:fixed;
-right:-350px;
-top:0;
-width:350px;
-height:100%;
-background:white;
-box-shadow:-2px 0 10px rgba(0,0,0,0.2);
-padding:20px;
-transition:0.3s;
-overflow:auto;
-
-}
-
-.cart-panel.open{
-right:0;
-}
-
-.cart-item{
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:10px;
-
-}
-
-.product-info h1{
-font-size:40px;
-margin-bottom:20px;
-}
-
-.price{
-font-size:28px;
-color:#0a7cff;
-margin-bottom:20px;
-}
-
-.description{
-color:#6b7280;
-margin-bottom:30px;
-}
-
-@media(max-width:768px){
-.product-container{
-flex-direction:column;
-text-align:center;
-}
-}
-.checkout{
-padding:120px 60px;
-background:#f8fafc;
-text-align:center;
-}
-
-.checkout-form{
-max-width:400px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:20px;
-}
-
-.checkout-form input{
-padding:15px;
-border:1px solid #e5e7eb;
-border-radius:6px;
-font-size:16px;
-}
-
-.checkout-form input:focus{
-outline:none;
-border-color:#0a7cff;
-}
 .cart-panel{
 position:fixed;
 top:0;
-right:-400px;
-width:350px;
+right:-360px;
+width:340px;
 height:100%;
 background:white;
-box-shadow:-5px 0 20px rgba(0,0,0,0.1);
-padding:30px;
-transition:0.3s;
-z-index:1000;
+padding:25px;
+box-shadow:-6px 0 25px rgba(0,0,0,0.15);
+transition:0.35s;
+z-index:2000;
 overflow-y:auto;
 }
 
@@ -473,166 +220,77 @@ right:0;
 .cart-item{
 display:flex;
 align-items:center;
-margin-bottom:20px;
+gap:10px;
+margin-bottom:15px;
 }
 
 .cart-item img{
-width:60px;
-margin-right:15px;
-}
-
-.cart-item-info h4{
-font-size:14px;
-margin:0;
-}
-
-.cart-item-info p{
-font-size:13px;
-color:gray;
+width:50px;
 }
 
 .cart-total{
 margin-top:20px;
 font-weight:bold;
-font-size:18px;
 }
 
-.checkout-btn{
-display:block;
-margin-top:20px;
-text-align:center;
-}
-/* ===== ADMIN DASHBOARD ===== */
+/* ===== FOOTER ===== */
 
-body{
-font-family: Arial, Helvetica, sans-serif;
-background:#f4f6f9;
-margin:0;
-padding:30px;
-color:#333;
-}
-
-/* Title */
-
-h1{
-text-align:center;
-margin-bottom:40px;
-color:#111;
-}
-
-/* Admin Panel */
-
-.admin-panel{
+footer{
 background:white;
-padding:25px;
-border-radius:10px;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-margin-bottom:40px;
-max-width:600px;
-margin-left:auto;
-margin-right:auto;
+padding:60px;
+margin-top:80px;
+border-top:1px solid #e5e7eb;
 }
 
-.admin-panel h2{
-margin-bottom:20px;
+.footer-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:40px;
 }
 
-/* Form */
+.footer-bottom{
+text-align:center;
+margin-top:30px;
+color:#9ca3af;
+}
 
-#productForm{
+/* ===== FLOATING WHATSAPP ===== */
+
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+width:55px;
+height:55px;
+background:#25D366;
+color:white;
 display:flex;
-flex-direction:column;
-gap:12px;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:24px;
+box-shadow:0 8px 20px rgba(0,0,0,0.25);
+transition:0.3s;
 }
 
-#productForm input{
-padding:10px;
-border:1px solid #ccc;
-border-radius:6px;
-font-size:14px;
+.whatsapp-float:hover{
+transform:scale(1.1);
 }
 
-#productForm input:focus{
-outline:none;
-border-color:#007bff;
-}
-
-/* Buttons */
-
-button{
-padding:10px 16px;
-border:none;
-border-radius:6px;
-cursor:pointer;
-font-weight:600;
-}
-
-button:hover{
-opacity:0.9;
-}
-
-/* Add product button */
-
-#productForm button{
-background:#007bff;
-color:white;
-}
-
-/* Table */
-
-table{
-width:100%;
-background:white;
-border-collapse:collapse;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
-}
-
-thead{
-background:#111;
-color:white;
-}
-
-th,td{
-padding:12px;
-text-align:center;
-border-bottom:1px solid #eee;
-}
-
-/* Action buttons */
-
-td button{
-margin:3px;
-}
-
-td button:first-child{
-background:#28a745;
-color:white;
-}
-
-td button:last-child{
-background:#dc3545;
-color:white;
-}
-
-/* Responsive */
+/* ===== MOBILE ===== */
 
 @media(max-width:768px){
 
-table{
-font-size:14px;
+nav{
+padding:15px 20px;
 }
 
-#productForm input{
-font-size:14px;
+.section{
+padding:60px 20px;
+}
+
+.hero h1{
+font-size:28px;
 }
 
 }
-
-
-
-
-
-
-
