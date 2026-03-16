@@ -6,6 +6,7 @@
 <title>DTS - Dave Tech Services</title>
 <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    
 </head>
 <body>
 
@@ -33,7 +34,9 @@
     </div>
 
 </nav>
-
+<a href="https://wa.me/50946126417" class="whatsapp-float" target="_blank">
+💬
+</a>
 <section class="hero">
 <h1>Dave Tech Services</h1>
 <p>Tech News • Digital Innovation • Gadgets Store</p>
@@ -129,18 +132,6 @@
 
 </footer>
 <script>
-
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
-}
-
-window.addEventListener("scroll", function(){
-const nav = document.getElementById("navbar");
-nav.classList.toggle("scrolled", window.scrollY > 50);
-});
-
-</script>
-    <script>
 function revealOnScroll(){
 const reveals = document.querySelectorAll(".reveal");
 
@@ -154,28 +145,6 @@ el.classList.add("active");
 }
 
 window.addEventListener("scroll", revealOnScroll);
-</script>
-    <a href="https://wa.me/50946126417" class="whatsapp-float" target="_blank">
-💬
-</a>
-    <script>
-let cart = [];
-
-document.querySelectorAll(".add-to-cart").forEach(btn=>{
-btn.addEventListener("click", function(){
-
-const name = this.dataset.name;
-const price = parseFloat(this.dataset.price);
-
-cart.push({name, price});
-updateCartUI();
-
-});
-});
-
-function updateCartUI(){
-document.querySelector(".cart-count").textContent = cart.length;
-}
 </script>
 </body>
 
