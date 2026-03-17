@@ -3,21 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iPhone 13 | Dave Tech Services</title>
-
-<link rel="stylesheet" href="css/style.css">
-
+<title id="productTitle">Product | DTS</title>
+<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
 <!-- NAVBAR -->
 <nav>
-
 <div class="nav-left">
 <img src="images/dts-logo.png" alt="DTS Logo">
-<span>DAVE TECH SERVICES</span>
 </div>
 
 <div class="nav-right">
@@ -26,14 +21,10 @@
 <li><a href="store.html">Store</a></li>
 <li><a href="checkout.html">Checkout</a></li>
 </ul>
-
 <div class="cart-icon">
-🛒
-<span class="cart-count">0</span>
+🛒<span class="cart-count">0</span>
 </div>
-
 </div>
-
 </nav>
 
 <!-- PRODUCT DETAIL -->
@@ -42,34 +33,32 @@
 <div class="product-container">
 
 <div class="product-gallery">
-<img src="images/iphone13.jpg" alt="iPhone 13">
+<img id="detailImg" src="" alt="Product Image">
 </div>
 
 <div class="product-info">
-<h1>iPhone 13</h1>
-<p class="price">$650</p>
+<h1 id="detailName">Product Name</h1>
+<p class="price" id="detailPrice">$0</p>
 
-<p class="description">
-128GB. Excellent condition. Powerful A15 chip. Clean design.
+<p class="description" id="detailDesc">
+Product description here.
 </p>
 
-<button class="btn add-to-cart"
-data-name="iPhone 13"
-data-price="650"
-data-img="images/iphone13.jpg">
+<button class="btn add-to-cart" 
+id="detailAddToCart"
+data-name="" data-price="" data-img="">
 Add to Cart
 </button>
 
 <br><br>
 
-<a href="checkout.html" class="btn">
-Buy Now
+<a id="whatsappBtn" class="btn" href="" target="_blank">
+Commander via WhatsApp
 </a>
 
 </div>
 
 </div>
-
 </section>
 
 <!-- FOOTER -->
@@ -79,25 +68,46 @@ Buy Now
 </div>
 </footer>
 
-<!-- CART SCRIPT -->
+<!-- SCRIPT -->
 <script>
+// FUNCTION TO LOAD PRODUCT FROM STORE PAGE
+const urlParams = new URLSearchParams(window.location.search);
+const name = urlParams.get('name');
+const price = urlParams.get('price');
+const img = urlParams.get('img');
+const desc = urlParams.get('desc') || "High quality product from DTS.";
 
-let cart = [];
+// FILL PRODUCT DETAIL
+document.getElementById("detailName").textContent = name;
+document.getElementById("detailPrice").textContent = "$" + price;
+document.getElementById("detailImg").src = img;
+document.getElementById("detailAddToCart").dataset.name = name;
+document.getElementById("detailAddToCart").dataset.price = price;
+document.getElementById("detailAddToCart").dataset.img = img;
+document.getElementById("detailDesc").textContent = desc;
 
-document.querySelectorAll(".add-to-cart").forEach(btn=>{
-btn.addEventListener("click", function(){
+// WhatsApp link
+document.getElementById("whatsappBtn").href = 
+`https://wa.me/50946126417?text=Bonjour%20je%20veux%20commander%20${encodeURIComponent(name)}%20pour%20${encodeURIComponent(price)}$`;
 
+// CART SYSTEM
+function getCart(){ return JSON.parse(localStorage.getItem("cart")) || []; }
+function saveCart(cart){ localStorage.setItem("cart", JSON.stringify(cart)); }
+function updateCartCount(){ document.querySelector(".cart-count").textContent = getCart().length; }
+
+document.getElementById("detailAddToCart").addEventListener("click", function(){
 const name = this.dataset.name;
 const price = parseFloat(this.dataset.price);
+const img = this.dataset.img;
 
-cart.push({name, price});
-document.querySelector(".cart-count").textContent = cart.length;
-
-alert(name + " added to cart!");
-
+let cart = getCart();
+cart.push({name, price, img});
+saveCart(cart);
+updateCartCount();
+alert(name + " added to cart 🛒");
 });
-});
 
+updateCartCount();
 </script>
 
 </body>
