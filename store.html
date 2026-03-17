@@ -117,7 +117,32 @@ View
 </div>
 
 </footer>
+<script>
 
+const buttons = document.querySelectorAll(".view-product");
+
+buttons.forEach(btn=>{
+btn.addEventListener("click", function(){
+
+const name = this.dataset.name;
+const price = this.dataset.price;
+const img = this.dataset.img;
+
+document.getElementById("detailName").textContent = name;
+document.getElementById("detailPrice").textContent = "$" + price;
+document.getElementById("detailImg").src = img;
+
+document.getElementById("productDetail").style.display = "block";
+
+window.scrollTo({
+top: document.getElementById("productDetail").offsetTop - 100,
+behavior: "smooth"
+});
+
+});
+});
+
+</script>
 </body>
 </html>
 
