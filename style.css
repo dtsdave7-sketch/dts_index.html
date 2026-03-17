@@ -323,3 +323,130 @@ transition:all 0.8s ease;
 opacity:1;
 transform:translateY(0);
 }
+/* ===== ADMIN DASHBOARD ===== */
+
+body{
+font-family: Arial, Helvetica, sans-serif;
+background:#f4f6f9;
+margin:0;
+padding:30px;
+color:#333;
+}
+
+/* Title */
+
+h1{
+text-align:center;
+margin-bottom:40px;
+color:#111;
+}
+
+/* Admin Panel */
+
+.admin-panel{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+margin-bottom:40px;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.admin-panel h2{
+margin-bottom:20px;
+}
+
+/* Form */
+
+#productForm{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+#productForm input{
+padding:10px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
+}
+
+#productForm input:focus{
+outline:none;
+border-color:#007bff;
+}
+
+/* Buttons */
+
+button{
+padding:10px 16px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+/* Add product button */
+
+#productForm button{
+background:#007bff;
+color:white;
+}
+
+/* Table */
+
+table{
+width:100%;
+background:white;
+border-collapse:collapse;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+thead{
+background:#111;
+color:white;
+}
+
+th,td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+/* Action buttons */
+
+td button{
+margin:3px;
+}
+
+td button:first-child{
+background:#28a745;
+color:white;
+}
+
+td button:last-child{
+background:#dc3545;
+color:white;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+table{
+font-size:14px;
+}
+
+#productForm input{
+font-size:14px;
+}
+
+}
