@@ -109,8 +109,9 @@ alert(name + " added to cart 🛒");
 
 updateCartCount();
 </script>
-  <script>
-  const cartIcon = document.querySelector(".cart-icon");
+ <script>
+
+const cartIcon = document.querySelector(".cart-icon");
 const cartPanel = document.getElementById("cart-panel");
 const cartItemsContainer = document.getElementById("cart-items");
 const cartTotal = document.getElementById("cart-total");
@@ -120,14 +121,6 @@ cartPanel.classList.toggle("open");
 renderCart();
 });
 
-function getCart(){
-return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function saveCart(cart){
-localStorage.setItem("cart", JSON.stringify(cart));
-}
-
 function renderCart(){
 
 let cart = getCart();
@@ -135,17 +128,21 @@ cartItemsContainer.innerHTML = "";
 
 let total = 0;
 
-cart.forEach(item => {
+cart.forEach((item,index)=>{
 
 total += item.price;
 
 cartItemsContainer.innerHTML += `
 <div class="cart-item">
-<img src="${item.img}">
-<div class="cart-item-info">
+
+<img src="${item.img}" width="50">
+
+<div>
 <h4>${item.name}</h4>
 <p>$${item.price}</p>
+<button onclick="removeItem(${index})">Remove</button>
 </div>
+
 </div>
 `;
 
@@ -154,6 +151,21 @@ cartItemsContainer.innerHTML += `
 cartTotal.textContent = total;
 
 }
-  </script>
+
+function removeItem(index){
+
+let cart = getCart();
+
+cart.splice(index,1);
+
+saveCart(cart);
+
+renderCart();
+
+updateCartCount();
+
+}
+
+</script>
 </body>
 </html>
