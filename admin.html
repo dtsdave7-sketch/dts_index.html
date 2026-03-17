@@ -1,132 +1,57 @@
-<script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DTS Admin Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-// GET PRODUCT FROM URL
-const params = new URLSearchParams(window.location.search);
+<h1>DTS Admin Dashboard</h1>
 
-const name = params.get("name");
-const price = params.get("price");
-const img = params.get("img");
+<section class="admin-panel">
 
-// DISPLAY PRODUCT
-if(name){
+<h2>Add Product</h2>
 
-document.getElementById("detailName").textContent = name;
-document.getElementById("detailPrice").textContent = "$" + price;
-document.getElementById("detailImg").src = img;
+<form id="productForm">
 
-document.getElementById("productTitle").textContent = name + " | DTS";
+<input type="text" id="name" placeholder="Product Name" required>
 
-const cartBtn = document.getElementById("detailAddToCart");
+<input type="number" id="price" placeholder="Price" required>
 
-cartBtn.dataset.name = name;
-cartBtn.dataset.price = price;
-cartBtn.dataset.img = img;
+<input type="text" id="image" placeholder="Image URL" required>
 
-// WHATSAPP BUTTON
-const whatsapp = document.getElementById("whatsappBtn");
+<input type="number" id="stock" placeholder="Stock Quantity" required>
 
-whatsapp.href =
-"https://wa.me/50946126417?text=Bonjour je veux commander " + name;
+<button type="submit">Add Product</button>
 
-}
+</form>
 
-// CART FUNCTIONS
-function getCart(){
-return JSON.parse(localStorage.getItem("cart")) || [];
-}
+</section>
 
-function saveCart(cart){
-localStorage.setItem("cart", JSON.stringify(cart));
-}
 
-function updateCartCount(){
-const cart = getCart();
-document.querySelector(".cart-count").textContent = cart.length;
-}
+<section>
 
-// ADD TO CART
-document.getElementById("detailAddToCart").addEventListener("click", function(){
+<h2>Products List</h2>
 
-const name = this.dataset.name;
-const price = parseFloat(this.dataset.price);
-const img = this.dataset.img;
+<table border="1">
 
-let cart = getCart();
+<thead>
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>Stock</th>
+<th>Actions</th>
+</tr>
+</thead>
 
-cart.push({name,price,img});
+<tbody id="productTable"></tbody>
 
-saveCart(cart);
+</table>
 
-updateCartCount();
+</section>
 
-alert(name + " added to cart");
+<script src="admin.js"></script>
 
-});
-
-// CART PANEL
-const cartIcon = document.querySelector(".cart-icon");
-const cartPanel = document.getElementById("cart-panel");
-const cartItemsContainer = document.getElementById("cart-items");
-const cartTotal = document.getElementById("cart-total");
-
-cartIcon.addEventListener("click", () => {
-
-cartPanel.classList.toggle("open");
-
-renderCart();
-
-});
-
-function renderCart(){
-
-let cart = getCart();
-
-cartItemsContainer.innerHTML = "";
-
-let total = 0;
-
-cart.forEach((item,index)=>{
-
-total += item.price;
-
-cartItemsContainer.innerHTML += `
-<div class="cart-item">
-
-<img src="${item.img}" width="50">
-
-<div>
-
-<h4>${item.name}</h4>
-
-<p>$${item.price}</p>
-
-<button onclick="removeItem(${index})">Remove</button>
-
-</div>
-
-</div>
-`;
-
-});
-
-cartTotal.textContent = total;
-
-}
-
-function removeItem(index){
-
-let cart = getCart();
-
-cart.splice(index,1);
-
-saveCart(cart);
-
-renderCart();
-
-updateCartCount();
-
-}
-
-updateCartCount();
-
-</script>
+</body>
+</html>
