@@ -1,88 +1,132 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DTS Admin Dashboard</title>
-<link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-    <script src="admin.js"></script>
-</head>
-<body>
-<nav id="navbar">
- 
-    <div class="nav-left">
-        <img src="images/dts-logo.png" alt="DTS Logo">
-        
-    </div>
+<script>
 
-    <div class="nav-right">
-        <ul id="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="store.html">Store</a></li>
-             <li><a href="admin.html">Admin</a></li>
-            <li><a href="#">Contact</a></li>
-           
-        </ul>
+// GET PRODUCT FROM URL
+const params = new URLSearchParams(window.location.search);
 
-        <a href="#" class="nav-btn">Shop Now</a>
+const name = params.get("name");
+const price = params.get("price");
+const img = params.get("img");
 
-        <div class="burger" onclick="toggleMenu()">
-            ☰
-        </div>
-    </div>
+// DISPLAY PRODUCT
+if(name){
 
-</nav>
-<h1>DTS Admin Dashboard</h1>
+document.getElementById("detailName").textContent = name;
+document.getElementById("detailPrice").textContent = "$" + price;
+document.getElementById("detailImg").src = img;
 
-<section class="admin-panel">
+document.getElementById("productTitle").textContent = name + " | DTS";
 
-<h2>Add Product</h2>
+const cartBtn = document.getElementById("detailAddToCart");
 
-<h1>Admin Dashboard</h1>
+cartBtn.dataset.name = name;
+cartBtn.dataset.price = price;
+cartBtn.dataset.img = img;
 
-<form id="productForm">
+// WHATSAPP BUTTON
+const whatsapp = document.getElementById("whatsappBtn");
 
-<input type="text" id="name" placeholder="Product name">
+whatsapp.href =
+"https://wa.me/50946126417?text=Bonjour je veux commander " + name;
 
-<input type="number" id="price" placeholder="Price">
+}
 
-<input type="text" id="image" placeholder="Image URL">
+// CART FUNCTIONS
+function getCart(){
+return JSON.parse(localStorage.getItem("cart")) || [];
+}
 
-<input type="text" id="description" placeholder="Description">
+function saveCart(cart){
+localStorage.setItem("cart", JSON.stringify(cart));
+}
 
-<button type="submit">Add Product</button>
+function updateCartCount(){
+const cart = getCart();
+document.querySelector(".cart-count").textContent = cart.length;
+}
 
-</form>
-</section>
+// ADD TO CART
+document.getElementById("detailAddToCart").addEventListener("click", function(){
 
+const name = this.dataset.name;
+const price = parseFloat(this.dataset.price);
+const img = this.dataset.img;
 
-<section>
+let cart = getCart();
 
-<h2>Products List</h2>
+cart.push({name,price,img});
 
-<table border="1">
+saveCart(cart);
 
-<thead>
-<tr>
-<th>Name</th>
-<th>Price</th>
-<th>Stock</th>
-<th>Actions</th>
-</tr>
-</thead>
+updateCartCount();
 
-<tbody id="productTable"></tbody>
+alert(name + " added to cart");
 
-</table>
+});
 
-</section>
+// CART PANEL
+const cartIcon = document.querySelector(".cart-icon");
+const cartPanel = document.getElementById("cart-panel");
+const cartItemsContainer = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
 
+cartIcon.addEventListener("click", () => {
 
-</body>
-</html>
+cartPanel.classList.toggle("open");
 
+renderCart();
 
+});
 
+function renderCart(){
 
+let cart = getCart();
 
+cartItemsContainer.innerHTML = "";
+
+let total = 0;
+
+cart.forEach((item,index)=>{
+
+total += item.price;
+
+cartItemsContainer.innerHTML += `
+<div class="cart-item">
+
+<img src="${item.img}" width="50">
+
+<div>
+
+<h4>${item.name}</h4>
+
+<p>$${item.price}</p>
+
+<button onclick="removeItem(${index})">Remove</button>
+
+</div>
+
+</div>
+`;
+
+});
+
+cartTotal.textContent = total;
+
+}
+
+function removeItem(index){
+
+let cart = getCart();
+
+cart.splice(index,1);
+
+saveCart(cart);
+
+renderCart();
+
+updateCartCount();
+
+}
+
+updateCartCount();
+
+</script>
