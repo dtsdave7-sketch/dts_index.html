@@ -131,100 +131,7 @@ View
 </div>
 
 </footer>
-<script>
-
-const buttons = document.querySelectorAll(".view-product");
-
-buttons.forEach(btn=>{
-btn.addEventListener("click", function(){
-
-const name = this.dataset.name;
-const price = this.dataset.price;
-const img = this.dataset.img;
-
-document.getElementById("detailName").textContent = name;
-document.getElementById("detailPrice").textContent = "$" + price;
-document.getElementById("detailImg").src = img;
-
-document.getElementById("productDetail").style.display = "block";
-
-window.scrollTo({
-top: document.getElementById("productDetail").offsetTop - 100,
-behavior: "smooth"
-});
-
-});
-});
-
-</script>
  <script>
-
-function getCart(){
-return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function saveCart(cart){
-localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function updateCartCount(){
-const cart = getCart();
-document.querySelector(".cart-count").textContent = cart.length;
-}
-
-document.querySelectorAll(".add-to-cart").forEach(button=>{
-button.addEventListener("click", function(){
-
-const name = this.dataset.name;
-const price = parseFloat(this.dataset.price);
-const img = this.dataset.img;
-
-let cart = getCart();
-
-cart.push({name, price, img});
-
-saveCart(cart);
-updateCartCount();
-
-alert(name + " added to cart 🛒");
-
-});
-});
-
-updateCartCount();
-
-</script>
- <script>
-
-let products = JSON.parse(localStorage.getItem("products")) || [];
-
-const grid = document.querySelector(".grid");
-
-products.forEach(product => {
-
-grid.innerHTML += `
-<div class="card">
-
-<div class="product-image">
-<img src="${product.img}">
-</div>
-
-<h3>${product.name}</h3>
-
-<p>$${product.price}</p>
-
-<a href="product.html?name=${product.name}&price=${product.price}&img=${product.img}" class="btn">
-View
-</a>
-
-</div>
-`;
-
-});
-
-</script>
- <script>
-
 let products = JSON.parse(localStorage.getItem("products")) || [];
 
 const grid = document.querySelector(".grid");
@@ -243,17 +150,43 @@ grid.innerHTML += `
 
 <p>$${product.price}</p>
 
-<a href="product.html?name=${product.name}&price=${product.price}&img=${product.image}" class="btn">
+<button class="btn view-product"
+data-name="${product.name}"
+data-price="${product.price}"
+data-img="${product.image}">
 View
-</a>
+</button>
 
 </div>
 
 `;
 
 });
-
 </script>
+ <script>
+ document.querySelector(".add-to-cart").addEventListener("click", function(){
+
+const name = this.dataset.name;
+const price = parseFloat(this.dataset.price);
+const img = this.dataset.img;
+
+if(!name){
+alert("Select a product first");
+return;
+}
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({name, price, img});
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+document.querySelector(".cart-count").textContent = cart.length;
+
+alert(name + " added to cart 🛒");
+
+});
+  </script>
 </body>
 </html>
 
