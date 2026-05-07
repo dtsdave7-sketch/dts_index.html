@@ -1,131 +1,84 @@
-let products = JSON.parse(localStorage.getItem("products")) || [];
+let products = JSON.parse(localStorage.getItem('products')) || [];
 
-const table = document.getElementById("productTable");
+const table    = document.getElementById('productTable');
+const form     = document.getElementById('productForm');
+const formTitle = document.getElementById('formTitle');
 
-const imageFile = document.getElementById("imageFile");
+// ===== RENDER TABLE =====
 
-const preview = document.getElementById("preview");
+function renderProducts() {
+  table.innerHTML = '';
 
-let imageData = "";
+  if (products.length === 0) {
+    table.innerHTML = '<tr><td colspan="4" style="color:#9ca3af;">No products yet.</td></tr>';
+    return;
+  }
 
-/* IMAGE PREVIEW */
-
-imageFile.addEventListener("change", function(){
-
-const file = this.files[0];
-
-const reader = new FileReader();
-
-reader.onload = function(e){
-
-imageData = e.target.result;
-
-preview.src = imageData;
-
-preview.style.display = "block";
-
-}
-
-reader.readAsDataURL(file);
-
-});
-
-
-/* RENDER PRODUCTS */
-
-function renderProducts(){
-
-table.innerHTML="";
-
-products.forEach((product,index)=>{
-
-table.innerHTML += `
-
-<tr>
-
-<td>${product.name}</td>
-
-<td>$${product.price}</td>
-
-<td>${product.stock}</td>
-
-<td>
-<button onclick="editProduct(${index})">Edit</button>
-<button onclick="deleteProduct(${index})">Delete</button>
-</td>
-
-</tr>
-
-`;
-
-});
-
+  products.forEach((product, index) => {
+    table.innerHTML += `
+      <tr>
+        <td>${product.name}</td>
+        <td>$${parseFloat(product.price).toFixed(2)}</td>
+        <td>${product.stock}</td>
+        <td>
+          <button class="edit-btn" onclick="editProduct(${index})">Edit</button>
+          <button class="del-btn"  onclick="deleteProduct(${index})">Delete</button>
+        </td>
+      </tr>
+    `;
+  });
 }
 
 renderProducts();
 
+// ===== ADD / SAVE PRODUCT =====
 
-/* ADD PRODUCT */
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
 
-document.getElementById("productForm").addEventListener("submit",function(e){
+  const editIndex = parseInt(document.getElementById('editIndex').value);
+  const product = {
+    name:  document.getElementById('pName').value.trim(),
+    price: parseFloat(document.getElementById('pPrice').value),
+    image: document.getElementById('pImage').value.trim(),
+    desc:  document.getElementById('pDesc').value.trim(),
+    stock: parseInt(document.getElementById('pStock').value),
+  };
 
-e.preventDefault();
+  if (editIndex >= 0) {
+    products[editIndex] = product;
+    document.getElementById('editIndex').value = '-1';
+    formTitle.textContent = 'Add Product';
+    form.querySelector('button[type=submit]').textContent = 'Add Product';
+  } else {
+    products.push(product);
+  }
 
-const name = document.getElementById("name").value;
-
-const price = document.getElementById("price").value;
-
-const stock = document.getElementById("stock").value;
-
-products.push({
-name:name,
-price:price,
-image:imageData,
-stock:stock
+  localStorage.setItem('products', JSON.stringify(products));
+  renderProducts();
+  this.reset();
 });
 
-localStorage.setItem("products", JSON.stringify(products));
+// ===== EDIT =====
 
-renderProducts();
-
-this.reset();
-
-preview.style.display="none";
-
-});
-
-
-/* DELETE */
-
-function deleteProduct(index){
-
-products.splice(index,1);
-
-localStorage.setItem("products", JSON.stringify(products));
-
-renderProducts();
-
+function editProduct(index) {
+  const p = products[index];
+  document.getElementById('editIndex').value = index;
+  document.getElementById('pName').value  = p.name;
+  document.getElementById('pPrice').value = p.price;
+  document.getElementById('pImage').value = p.image;
+  document.getElementById('pDesc').value  = p.desc  || '';
+  document.getElementById('pStock').value = p.stock;
+  formTitle.textContent = 'Edit Product';
+  form.querySelector('button[type=submit]').textContent = 'Save Changes';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ===== DELETE =====
 
-/* EDIT */
-
-function editProduct(index){
-
-const product = products[index];
-
-document.getElementById("name").value = product.name;
-
-document.getElementById("price").value = product.price;
-
-document.getElementById("stock").value = product.stock;
-
-imageData = product.image;
-
-preview.src = imageData;
-
-preview.style.display = "block";
-
-deleteProduct(index);
-
+function deleteProduct(index) {
+  if (!confirm('Delete "' + products[index].name + '"?')) return;
+  products.splice(index, 1);
+  localStorage.setItem('products', JSON.stringify(products));
+  renderProducts();
 }
