@@ -14,7 +14,7 @@
 
   const navHTML = `
   <nav>
-    <a href="index.html" class="nav-logo">D<span>T</span>S</a>
+    <a href="index.html" class="logodts.png"></a>
     <ul class="nav-links" id="navLinks">
       ${navLink('index.html', 'Home')}
       ${navLink('store.html', 'Store')}
