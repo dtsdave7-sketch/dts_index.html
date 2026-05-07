@@ -1,166 +1,173 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DTS - Dave Tech Services</title>
-<link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DTS — Dave Tech Services</title>
+  <meta name="description" content="Dave Tech Services — Tech News, Digital Innovation & Gadgets Store in Haiti">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav id="navbar">
- 
-    <div class="nav-left">
-        <img src="images/dts-logo.png" alt="DTS Logo">
-        
-    </div>
+<script src="nav.js"></script>
 
-    <div class="nav-right">
-        <ul id="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="store.html">Store</a></li>
-             <li><a href="admin.html">Admin</a></li>
-            <li><a href="#">Contact</a></li>
-           
-        </ul>
-
-        <a href="store.html" class="nav-btn">Shop Now</a>
-
-        <div class="burger" onclick="toggleMenu()">
-            ☰
-        </div>
-    </div>
-
-</nav>
-<a href="https://wa.me/50946126417" class="whatsapp-float" target="_blank">
-     <h1>whatsapp</h1>
-💬
-</a>
+<!-- ===== HERO ===== -->
 <section class="hero">
-<h1>Dave Tech Services</h1>
-<p>Tech News • Digital Innovation • Gadgets Store</p>
-<a href="store.html" class="btn">Visit Store</a>
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="dot"></span>
+      Haiti's Premier Tech Store
+    </div>
+    <h1>
+      <span class="thin">DAVE</span><br>
+      <span class="accent">TECH</span><br>
+      SERVICES
+    </h1>
+    <p>Tech News · Digital Innovation · Quality Gadgets. Delivered to your door in Haiti.</p>
+    <div class="hero-actions">
+      <a href="store.html" class="btn btn-primary">Shop Now →</a>
+      <a href="news.html" class="btn btn-outline">Latest News</a>
+    </div>
+  </div>
 </section>
 
+<!-- ===== STATS ===== -->
+<div class="stats-bar reveal">
+  <div class="stat-item">
+    <div class="stat-num">500+</div>
+    <div class="stat-label">Happy Customers</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">100+</div>
+    <div class="stat-label">Products Available</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">24/7</div>
+    <div class="stat-label">WhatsApp Support</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">3YR</div>
+    <div class="stat-label">In Business</div>
+  </div>
+</div>
+
+<!-- ===== FEATURED PRODUCTS ===== -->
 <section class="section">
-<h2>Latest Tech News</h2>
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">Top Picks</div>
+      <h2 class="section-title">FEATURED PRODUCTS</h2>
+    </div>
+    <a href="store.html" class="btn btn-outline">View All →</a>
+  </div>
 
-<div class="grid">
+  <div class="products-grid">
 
-<div class="card">
-<h3>Top AI Tools in 2026</h3>
-<p>Discover the most powerful artificial intelligence tools shaping the future.</p>
-</div>
+    <div class="product-card reveal reveal-d1">
+      <span class="product-badge badge-hot">🔥 Hot</span>
+      <div class="product-img-wrap">
+        <img src="images/iphone13.jpg" alt="iPhone 13" onerror="this.parentElement.innerHTML='<div class=product-img-placeholder>📱</div>'">
+      </div>
+      <div class="product-body">
+        <h3 class="product-name">iPhone 13</h3>
+        <p class="product-desc-short">128GB · A15 Bionic chip · Excellent condition. Dual camera, all-day battery.</p>
+        <div class="product-price">$650</div>
+        <div class="product-actions">
+          <a href="product.html?name=iPhone%2013&price=650&img=images/iphone13.jpg&desc=128GB%20Excellent%20condition.%20Powerful%20A15%20Bionic%20chip.%20Dual%20camera%20system.%20All-day%20battery%20life." class="btn btn-dark btn-sm">Details</a>
+          <button class="btn btn-primary btn-sm" onclick="Cart.add('iPhone 13', 650, 'images/iphone13.jpg', '128GB A15 chip')">+ Cart</button>
+        </div>
+      </div>
+    </div>
 
-<div class="card">
-<h3>Best Budget Smartphones</h3>
-<p>Top affordable phones with great performance this year.</p>
-</div>
+    <div class="product-card reveal reveal-d2">
+      <span class="product-badge badge-new">New</span>
+      <div class="product-img-wrap">
+        <img src="images/samsung-a14.jpg" alt="Samsung A14" onerror="this.parentElement.innerHTML='<div class=product-img-placeholder>📱</div>'">
+      </div>
+      <div class="product-body">
+        <h3 class="product-name">Samsung A14</h3>
+        <p class="product-desc-short">6.6" display · 50MP camera · 5000mAh battery. Best value Android phone.</p>
+        <div class="product-price">$220</div>
+        <div class="product-actions">
+          <a href="product.html?name=Samsung%20A14&price=220&img=images/samsung-a14.jpg&desc=6.6%22%20display%2C%2050MP%20camera%2C%205000mAh%20battery.%20Best%20value%20Android%20phone." class="btn btn-dark btn-sm">Details</a>
+          <button class="btn btn-primary btn-sm" onclick="Cart.add('Samsung A14', 220, 'images/samsung-a14.jpg', '6.6 inch 50MP')">+ Cart</button>
+        </div>
+      </div>
+    </div>
 
-<div class="card">
-<h3>Cybersecurity Trends</h3>
-<p>How to protect your digital identity in 2026.</p>
-</div>
-<div class="card reveal"> </div>
-</div>
+    <div class="product-card reveal reveal-d3">
+      <div class="product-img-wrap">
+        <img src="images/hp-laptop.jpg" alt="HP Laptop" onerror="this.parentElement.innerHTML='<div class=product-img-placeholder>💻</div>'">
+      </div>
+      <div class="product-body">
+        <h3 class="product-name">HP Laptop</h3>
+        <p class="product-desc-short">Intel Core i5 · 8GB RAM · 256GB SSD. Perfect for work, school & business.</p>
+        <div class="product-price">$480</div>
+        <div class="product-actions">
+          <a href="product.html?name=HP%20Laptop&price=480&img=images/hp-laptop.jpg&desc=Intel%20Core%20i5%2C%208GB%20RAM%2C%20256GB%20SSD.%20Perfect%20for%20work%20and%20business." class="btn btn-dark btn-sm">Details</a>
+          <button class="btn btn-primary btn-sm" onclick="Cart.add('HP Laptop', 480, 'images/hp-laptop.jpg', 'Intel i5 8GB SSD')">+ Cart</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
+<div class="divider"></div>
+
+<!-- ===== NEWS ===== -->
 <section class="section">
-<h2>Featured Products</h2>
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">Stay Informed</div>
+      <h2 class="section-title">LATEST TECH NEWS</h2>
+    </div>
+    <a href="news.html" class="btn btn-outline">All Articles →</a>
+  </div>
 
-<div class="grid">
-
-<div class="card">
-<h3>iPhone 13</h3>
-<p>Available now at DTS Store.</p>
-<a class="btn" href="https://wa.me/50946126417?text=Bonjour%20je%20veux%20commander%20iPhone%2013">Order on WhatsApp</a>
-</div>
-
-<div class="card">
-<h3>Samsung A14</h3>
-<p>High performance at affordable price.</p>
-<a class="btn" href="https://wa.me/50946126417?text=Bonjour%20je%20veux%20commander%20Samsung%20A14">Order on WhatsApp</a>
-</div>
-
-<div class="card">
-<h3>HP Laptop</h3>
-<p>Perfect for work and business.</p>
-<a class="btn" href="https://wa.me/50946126417?text=Bonjour%20je%20veux%20commander%20HP%20Laptop">Order on WhatsApp</a>
-</div>
-
-</div>
+  <div class="news-grid">
+    <div class="news-card reveal reveal-d1">
+      <span class="news-tag">AI</span>
+      <h3>Top AI Tools Changing Work in 2026</h3>
+      <p>Discover the most powerful artificial intelligence tools shaping the future of business and creativity worldwide.</p>
+    </div>
+    <div class="news-card reveal reveal-d2">
+      <span class="news-tag">Smartphones</span>
+      <h3>Best Budget Smartphones of the Year</h3>
+      <p>Top affordable phones with flagship features, great cameras, and long battery life — all under $300.</p>
+    </div>
+    <div class="news-card reveal reveal-d3">
+      <span class="news-tag">Security</span>
+      <h3>Cybersecurity: Protecting Your Digital Life</h3>
+      <p>Essential tips and tools to keep your devices, accounts, and personal data safe from modern threats.</p>
+    </div>
+  </div>
 </section>
-<section class="section section-light">
-...
+
+<!-- ===== CTA BANNER ===== -->
+<section class="section" style="padding-top:0;">
+  <div class="reveal" style="
+    background: linear-gradient(135deg, rgba(29,140,248,0.15), rgba(0,212,255,0.08));
+    border: 1px solid rgba(29,140,248,0.25);
+    border-radius: 20px;
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  ">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center, rgba(29,140,248,0.08) 0%, transparent 70%);pointer-events:none;"></div>
+    <div class="section-label" style="justify-content:center;display:flex;margin-bottom:14px;">Order via WhatsApp</div>
+    <h2 class="section-title" style="margin-bottom:16px;">NEED HELP CHOOSING?</h2>
+    <p style="color:var(--muted);max-width:500px;margin:0 auto 32px;">Chat with us on WhatsApp for personalized recommendations, pricing, and fast delivery across Haiti.</p>
+    <a href="https://wa.me/50946126417?text=Bonjour%20DTS!%20Je%20veux%20commander%20un%20produit." class="btn btn-primary" target="_blank">
+      💬 Chat on WhatsApp
+    </a>
+  </div>
 </section>
 
-<section class="section section-soft">
-...
-</section>
-<footer>
-
-<div class="footer-container">
-
-<div>
-<h3>DTS</h3>
-<p>Dave Tech Services</p>
-<p>Tech & Digital Media + Gadgets Store</p>
-</div>
-
-<div>
-<h3>Quick Links</h3>
-<ul>
-<li><a href="#">News</a></li>
-<li><a href="store.html">Store</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
-</div>
-
-<div>
-<h3>Contact</h3>
-<p>WhatsApp:
-<a href="https://wa.me/50946126417">+509 46 12 64 17</a>
-</p>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-© 2026 Dave Tech Services - All Rights Reserved
-</div>
-
-</footer>
-<script>
-function revealOnScroll(){
-const reveals = document.querySelectorAll(".reveal");
-
-reveals.forEach(el=>{
-const windowHeight = window.innerHeight;
-const elementTop = el.getBoundingClientRect().top;
-if(elementTop < windowHeight - 100){
-el.classList.add("active");
-}
-});
-}
-
-window.addEventListener("scroll", revealOnScroll);
-</script>
+<script src="footer.js"></script>
+<script src="cart.js"></script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
