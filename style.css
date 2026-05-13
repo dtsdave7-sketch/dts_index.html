@@ -95,12 +95,12 @@ nav::before {
 .nav-logo {
   font-family: var(--font-disp);
   font-size: 26px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 3px;
   color: var(--charcoal);
   text-transform: uppercase;
    .logo img{
-    height: 30px;
+    height: 10px;
     width: auto;
     display: block;}
    
