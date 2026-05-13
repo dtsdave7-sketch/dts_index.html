@@ -73,12 +73,12 @@ body::before {
 nav {
   position: sticky;
   top: 0;
-  z-index: 900;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 80px;
-  height: 72px;
+  padding: 30 80px;
+  height: 100px;
   background: rgba(250,247,242,0.94);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
