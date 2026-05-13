@@ -94,8 +94,8 @@ nav::before {
 
 .nav-logo {
   font-family: var(--font-disp);
-  font-size: 26px;
-  font-weight: 600;
+  font-size: 50px;
+  font-weight: 800;
   letter-spacing: 3px;
   color: var(--charcoal);
   text-transform: uppercase;
