@@ -1,102 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Checkout | Dave Tech Services</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <!-- EMAILJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+    emailjs.init("p9gP9vGhR3Rta0vJO");
+  </script>
 </head>
+
 <body>
 
 <script src="nav.js"></script>
 
 <div class="checkout-page">
 
-  <!-- LEFT: FORM -->
+  <!-- LEFT SIDE -->
   <div class="checkout-form-wrap reveal">
+
     <div class="section-label">Secure Checkout</div>
     <h1>CHECKOUT</h1>
 
     <form id="checkoutForm">
 
-      <h3 style="font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;margin-top:8px;">Contact Information</h3>
+      <!-- CONTACT -->
+      <h3 style="
+        font-size:14px;
+        font-weight:700;
+        letter-spacing:1px;
+        text-transform:uppercase;
+        color:var(--muted);
+        margin-bottom:18px;
+        margin-top:8px;
+      ">
+        Contact Information
+      </h3>
 
       <div class="form-group">
         <label>Full Name *</label>
-        <input type="text" id="fullName" placeholder="Your full name" required>
-      </div>
-      <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" id="email" placeholder="email@example.com">
-      </div>
-      <div class="form-group">
-        <label>WhatsApp / Phone *</label>
-        <input type="tel" id="phone" placeholder="+509 XX XX XX XX" required>
+        <input
+          type="text"
+          id="fullName"
+          placeholder="Your full name"
+          required
+        >
       </div>
 
-      <h3 style="font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;margin-top:28px;">Delivery</h3>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="email@example.com"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>WhatsApp / Phone *</label>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="+509 XX XX XX XX"
+          required
+        >
+      </div>
+
+      <!-- DELIVERY -->
+      <h3 style="
+        font-size:14px;
+        font-weight:700;
+        letter-spacing:1px;
+        text-transform:uppercase;
+        color:var(--muted);
+        margin-bottom:18px;
+        margin-top:28px;
+      ">
+        Delivery
+      </h3>
 
       <div class="form-group">
         <label>Delivery Address *</label>
-        <input type="text" id="address" placeholder="Street, neighborhood, city" required>
-      </div>
-      <div class="form-group">
-        <label>City / Zone</label>
-        <input type="text" id="city" placeholder="e.g. Port-au-Prince, Delmas, Pétion-Ville">
-      </div>
-      <div class="form-group">
-        <label>Order Notes (optional)</label>
-        <textarea id="notes" rows="3" placeholder="Any special instructions…" style="resize:vertical;"></textarea>
+        <input
+          type="text"
+          id="address"
+          placeholder="Street, neighborhood, city"
+          required
+        >
       </div>
 
-      <h3 style="font-size:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:18px;margin-top:28px;">Payment Method</h3>
+      <div class="form-group">
+        <label>City / Zone</label>
+        <input
+          type="text"
+          id="city"
+          placeholder="e.g. Port-au-Prince, Delmas, Pétion-Ville"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Order Notes (optional)</label>
+
+        <textarea
+          id="notes"
+          rows="3"
+          placeholder="Any special instructions…"
+          style="resize:vertical;"
+        ></textarea>
+      </div>
+
+      <!-- PAYMENT -->
+      <h3 style="
+        font-size:14px;
+        font-weight:700;
+        letter-spacing:1px;
+        text-transform:uppercase;
+        color:var(--muted);
+        margin-bottom:18px;
+        margin-top:28px;
+      ">
+        Payment Method
+      </h3>
 
       <div class="form-group">
         <label>Select Payment *</label>
+
         <select id="payMethod" required>
-          <option value="" disabled selected>Choose payment method</option>
-          <option value="whatsapp">Pay via WhatsApp</option>
-          <option value="moncash">MonCash</option>
-          <option value="natcash">Natcash</option>
-          <option value="cash">Cash on Delivery</option>
+          <option value="" disabled selected>
+            Choose payment method
+          </option>
+
+          <option value="whatsapp">
+            Pay via WhatsApp
+          </option>
+
+          <option value="moncash">
+            MonCash
+          </option>
+
+          <option value="natcash">
+            Natcash
+          </option>
+
+          <option value="cash">
+            Cash on Delivery
+          </option>
         </select>
       </div>
 
-      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;font-size:16px;margin-top:10px;">
+      <!-- BUTTON -->
+      <button
+        type="submit"
+        class="btn btn-primary"
+        style="
+          width:100%;
+          justify-content:center;
+          padding:16px;
+          font-size:16px;
+          margin-top:10px;
+        "
+      >
         ✅ Complete Order
       </button>
+
     </form>
   </div>
 
-  <!-- RIGHT: ORDER SUMMARY -->
+  <!-- RIGHT SIDE -->
   <div class="order-summary-card reveal reveal-d2">
+
     <h2>Order Summary</h2>
+
     <div id="summaryItems">
-      <p style="color:var(--muted);font-size:14px;">No items in cart. <a href="store.html" style="color:var(--blue);">Go shop →</a></p>
+      <p style="
+        color:var(--muted);
+        font-size:14px;
+      ">
+        No items in cart.
+        <a href="store.html" style="color:var(--blue);">
+          Go shop →
+        </a>
+      </p>
     </div>
+
     <div class="summary-total">
       <span>Total</span>
       <span>$<span id="summaryTotal">0.00</span></span>
     </div>
-    <div style="margin-top:20px;padding:16px;background:var(--bg2);border-radius:10px;border:1px solid var(--border);">
-      <p style="font-size:12px;color:var(--muted);margin-bottom:6px;">🇭🇹 Delivery across Haiti</p>
-      <p style="font-size:12px;color:var(--muted);margin-bottom:6px;">💬 WhatsApp: <a href="https://wa.me/50946126417" style="color:var(--blue);">+509 46 12 64 17</a></p>
-      <p style="font-size:12px;color:var(--muted);">✅ Satisfaction guaranteed</p>
+
+    <div style="
+      margin-top:20px;
+      padding:16px;
+      background:var(--bg2);
+      border-radius:10px;
+      border:1px solid var(--border);
+    ">
+
+      <p style="
+        font-size:12px;
+        color:var(--muted);
+        margin-bottom:6px;
+      ">
+        🇭🇹 Delivery across Haiti
+      </p>
+
+      <p style="
+        font-size:12px;
+        color:var(--muted);
+        margin-bottom:6px;
+      ">
+        💬 WhatsApp:
+        <a
+          href="https://wa.me/50946126417"
+          style="color:var(--blue);"
+        >
+          +509 46 12 64 17
+        </a>
+      </p>
+
+      <p style="
+        font-size:12px;
+        color:var(--muted);
+      ">
+        ✅ Satisfaction guaranteed
+      </p>
+
     </div>
   </div>
-
 </div>
 
 <!-- SUCCESS MODAL -->
-<div id="successModal" style="
-  display:none;
-  position:fixed;inset:0;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(6px);
-  z-index:3000;
-  align-items:center;
-  justify-content:center;
-">
+<div
+  id="successModal"
+  style="
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(6px);
+    z-index:3000;
+    align-items:center;
+    justify-content:center;
+  "
+>
+
   <div style="
     background:var(--bg2);
     border:1px solid rgba(29,140,248,0.3);
@@ -106,65 +258,188 @@
     max-width:440px;
     width:90%;
   ">
-    <div style="font-size:64px;margin-bottom:20px;">✅</div>
-    <h2 style="font-family:var(--font-disp);font-size:36px;letter-spacing:2px;margin-bottom:12px;">ORDER PLACED!</h2>
-    <p style="color:var(--muted);margin-bottom:28px;" id="modalMsg">Thank you! We will contact you shortly.</p>
-    <a href="store.html" class="btn btn-primary" style="display:inline-flex;">Continue Shopping →</a>
+
+    <div style="
+      font-size:64px;
+      margin-bottom:20px;
+    ">
+      ✅
+    </div>
+
+    <h2 style="
+      font-family:var(--font-disp);
+      font-size:36px;
+      letter-spacing:2px;
+      margin-bottom:12px;
+    ">
+      ORDER PLACED!
+    </h2>
+
+    <p
+      style="
+        color:var(--muted);
+        margin-bottom:28px;
+      "
+      id="modalMsg"
+    >
+      Thank you! We will contact you shortly.
+    </p>
+
+    <a
+      href="store.html"
+      class="btn btn-primary"
+      style="display:inline-flex;"
+    >
+      Continue Shopping →
+    </a>
+
   </div>
 </div>
 
 <script src="footer.js"></script>
 <script src="cart.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+
   const cart = Cart.get();
+
   const summaryItems = document.getElementById('summaryItems');
   const summaryTotal = document.getElementById('summaryTotal');
 
+  // DISPLAY CART
   if (cart.length === 0) {
-    summaryItems.innerHTML = '<p style="color:var(--muted);font-size:14px;">Cart is empty. <a href="store.html" style="color:var(--blue);">Shop →</a></p>';
+
+    summaryItems.innerHTML = `
+      <p style="color:var(--muted);font-size:14px;">
+        Cart is empty.
+        <a href="store.html" style="color:var(--blue);">
+          Shop →
+        </a>
+      </p>
+    `;
+
   } else {
+
     let total = 0;
+
     summaryItems.innerHTML = cart.map(item => {
+
       total += item.price;
-      return `<div class="summary-item"><span>${item.name}</span><span>$${item.price.toFixed(2)}</span></div>`;
+
+      return `
+        <div class="summary-item">
+          <span>${item.name}</span>
+          <span>$${item.price.toFixed(2)}</span>
+        </div>
+      `;
+
     }).join('');
+
     summaryTotal.textContent = total.toFixed(2);
   }
 
-  document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+  // CHECKOUT
+  document.getElementById('checkoutForm')
+    .addEventListener('submit', function(e) {
+
     e.preventDefault();
 
     if (cart.length === 0) {
-      alert('Your cart is empty! Please add products first.');
+      alert('Your cart is empty!');
       return;
     }
 
+    // FORM VALUES
     const name    = document.getElementById('fullName').value.trim();
+    const email   = document.getElementById('email').value.trim();
     const phone   = document.getElementById('phone').value.trim();
     const address = document.getElementById('address').value.trim();
     const city    = document.getElementById('city').value.trim();
     const notes   = document.getElementById('notes').value.trim();
     const method  = document.getElementById('payMethod').value;
 
+    // TOTAL
     const total = Cart.total().toFixed(2);
-    const itemsList = cart.map(i => `• ${i.name} – $${i.price.toFixed(2)}`).join('\n');
 
-    const msg = `Bonjour DTS! Nouvelle commande:\n\nNom: ${name}\nTél: ${phone}\nAdresse: ${address}${city ? ', ' + city : ''}\nPaiement: ${method}\n\nProduits:\n${itemsList}\n\nTotal: $${total}${notes ? '\n\nNotes: ' + notes : ''}`;
+    // PRODUCTS
+    const itemsList = cart.map(item =>
+      `• ${item.name} - $${item.price.toFixed(2)}`
+    ).join('\n');
 
+    // MESSAGE
+    const msg = `
+Bonjour DTS! Nouvelle commande:
+
+Nom: ${name}
+Email: ${email}
+Téléphone: ${phone}
+
+Adresse: ${address}
+Ville: ${city}
+
+Paiement: ${method}
+
+Produits:
+${itemsList}
+
+Total: $${total}
+
+Notes:
+${notes}
+`;
+
+    // SEND WHATSAPP
+    window.open(
+      `https://wa.me/50946126417?text=${encodeURIComponent(msg)}`,
+      '_blank'
+    );
+
+    // SEND EMAIL
+    emailjs.send(
+      "service_9rzpfxc",
+      "template_ze5y3sh",
+      {
+        customer_name: name,
+        customer_email: email,
+        customer_phone: phone,
+        customer_address: address,
+        customer_city: city,
+        payment_method: method,
+        order_items: itemsList,
+        total_amount: total,
+        notes: notes
+      }
+    )
+
+    .then(() => {
+
+      console.log("EMAIL SENT SUCCESSFULLY");
+
+    })
+
+    .catch((error) => {
+
+      console.error("EMAIL ERROR:", error);
+
+    });
+
+    // CLEAR CART
     Cart.clear();
 
-    if (method === 'whatsapp') {
-      window.open(`https://wa.me/50946126417?text=${encodeURIComponent(msg)}`, '_blank');
-    }
+    // SUCCESS MODAL
+    document.getElementById('modalMsg').textContent =
+      `Thank you ${name}! We will contact you shortly.`;
 
-    document.getElementById('modalMsg').textContent = `Thank you, ${name}! We will contact you at ${phone} shortly.`;
-    const modal = document.getElementById('successModal');
-    modal.style.display = 'flex';
+    document.getElementById('successModal').style.display = 'flex';
 
+    // RESET FORM
     this.reset();
+
   });
+
 });
 </script>
+
 </body>
 </html>
