@@ -100,9 +100,10 @@ nav::before {
   color: var(--charcoal);
   text-transform: uppercase;
    .logo img{
-    height: 10px;
+    height: 60px;
     width: auto;
-    display: block;}
+    object-fit: contain;
+   }
    
 }
 .nav-logo span { color: var(--gold); }
