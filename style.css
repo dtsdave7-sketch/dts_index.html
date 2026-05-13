@@ -98,14 +98,13 @@ nav::before {
   font-weight: 400;
   letter-spacing: 3px;
   color: var(--charcoal);
-  text-transform: uppercase;
-   .logo img{
+  text-transform: uppercase; 
+}
+  .logo img{
     height: 60px;
     width: auto;
     object-fit: contain;
    }
-   
-}
 .nav-logo span { color: var(--gold); }
 
 .nav-links {
