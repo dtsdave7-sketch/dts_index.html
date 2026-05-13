@@ -100,7 +100,7 @@ nav::before {
   color: var(--charcoal);
   text-transform: uppercase;
    .logo img{
-    height: 80px;
+    height: 30px;
     width: auto;
     display: block;}
    
