@@ -78,7 +78,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 80px;
-  height: 100px;
+  height: 72px;
   background: rgba(250,247,242,0.94);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -94,7 +94,7 @@ nav::before {
 
 .nav-logo {
   font-family: var(--font-disp);
-  font-size: 50px;
+  font-size: 26px;
   font-weight: 800;
   letter-spacing: 3px;
   color: var(--charcoal);
