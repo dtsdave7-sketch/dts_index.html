@@ -14,8 +14,8 @@
 
   const navHTML = `
   <nav>
-   <a href="index.html">
-    <img src="logodts.png"  class="logo">
+   <a href="index.html" class="logo">
+    <img src="images/logodts.png">
 </a>
     <ul class="nav-links" id="navLinks">
       ${navLink('index.html', 'Home')}
