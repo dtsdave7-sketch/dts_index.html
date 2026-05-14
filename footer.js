@@ -5,7 +5,6 @@
 (function () {
   const footerHTML = `
   <footer>
- 
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">D<span>T</span>S</div>
@@ -21,7 +20,6 @@
         </ul>
       </div>
       <div class="footer-col">
-      
         <h4>Store</h4>
         <ul>
           <li><a href="store.html#smartphones">Smartphones</a></li>
