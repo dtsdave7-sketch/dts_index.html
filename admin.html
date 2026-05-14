@@ -647,7 +647,42 @@ function clearAll(){
   alert('🗑️ All products cleared.');
 
 }
+// =========================
+// DTS TOAST MESSAGE
+// =========================
 
+function showToast(type, title, message){
+
+  const toastBox = document.getElementById('toastBox');
+
+  const toast = document.createElement('div');
+
+  toast.className = `toast ${type}`;
+
+  let icon = "ℹ️";
+
+  if(type === "success") icon = "✅";
+  if(type === "error")   icon = "❌";
+  if(type === "warning") icon = "⚠️";
+
+  toast.innerHTML = `
+    <div class="toast-icon">
+      ${icon}
+    </div>
+
+    <div class="toast-content">
+      <h4>${title}</h4>
+      <p>${message}</p>
+    </div>
+  `;
+
+  toastBox.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 4000);
+
+}
 </script>
 <!-- =========================
 DTS POPUP MESSAGE BOX
