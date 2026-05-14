@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact Us | DTS Multiservices</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<script src="nav.js"></script>
+
+<!-- HERO -->
+<section class="contact-hero">
+
+  <div class="section-label">
+    DTS MULTISERVICES
+  </div>
+
+  <h1>CONTACT US</h1>
+
+  <p>
+    We are always ready to assist you.
+    Contact DTS Multiservices for information,
+    support, orders, or professional services.
+  </p>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+
+  <div class="contact-grid">
+
+    <!-- CONTACT INFO -->
+    <div class="contact-info">
+
+      <h2>Get In Touch</h2>
+
+      <p>
+        Our team is available to answer
+        your questions and provide
+        professional assistance.
+      </p>
+
+      <div class="info-box">
+
+        <div class="info-icon">
+          📍
+        </div>
+
+        <div>
+
+          <h4>Address</h4>
+
+          <span>
+            #16, Rue Robin, Haiti
+          </span>
+
+        </div>
+
+      </div>
+
+      <div class="info-box">
+
+        <div class="info-icon">
+          📞
+        </div>
+
+        <div>
+
+          <h4>Phone / WhatsApp</h4>
+
+          <a href="https://wa.me/50946126417">
+            +509 46 12 64 17
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="info-box">
+
+        <div class="info-icon">
+          ✉️
+        </div>
+
+        <div>
+
+          <h4>Email</h4>
+
+          <a href="mailto:guaydave68@gmail.com">
+            guaydave68@gmail.com
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="info-box">
+
+        <div class="info-icon">
+          ⏰
+        </div>
+
+        <div>
+
+          <h4>Working Hours</h4>
+
+          <span>
+            Monday - Saturday<br>
+            9:00 AM - 7:00 PM
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- CONTACT FORM -->
+    <div class="contact-form">
+
+      <h2>Send Message</h2>
+
+      <form id="contactForm">
+
+        <div class="form-group">
+
+          <label>Full Name *</label>
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Your full name"
+            required
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Email Address *</label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="your@email.com"
+            required
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Phone Number</label>
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="+509 XX XX XX XX"
+          >
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Your Message *</label>
+
+          <textarea
+            id="message"
+            rows="6"
+            placeholder="Write your message here..."
+            required
+            style="resize:vertical;"
+          ></textarea>
+
+        </div>
+
+        <button
+          type="submit"
+          class="contact-btn"
+        >
+          Send Message →
+        </button>
+
+        <div
+          class="success-box"
+          id="successBox"
+        >
+          ✅ Your message has been sent successfully!
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+
+document.getElementById('contactForm')
+.addEventListener('submit', function(e){
+
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+
+  document.getElementById('successBox').style.display = 'block';
+
+  this.reset();
+
+  setTimeout(() => {
+
+    document.getElementById('successBox').style.display = 'none';
+
+  }, 4000);
+
+});
+
+</script>
+
+<script src="footer.js"></script>
+
+</body>
+</html>
