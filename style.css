@@ -737,11 +737,12 @@ tbody tr:hover { background: var(--cream); }
 .btn-del:hover { background: var(--red); color: white; border-color: var(--red); }
 
 /* ===== FOOTER ===== */
-footer {
-  background: var(--charcoal);
-  color: rgba(255,255,255,0.7);
+footer{
+  background: #ffffff;
+  color: #000000;
   padding: 80px 80px 36px;
-  position: relative; overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 footer::before {
   content: '';
