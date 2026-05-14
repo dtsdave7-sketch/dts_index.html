@@ -4,74 +4,300 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard | DTS</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<!-- =========================
+ADMIN SECURITY
+========================= -->
+
+<script>
+
+// ============================
+// DTS ADMIN LOGIN SYSTEM
+// ============================
+
+const ADMIN_USER = "DTSADMIN";
+const ADMIN_PASS = "DTS2026";
+
+// CHECK ACCESS
+if(localStorage.getItem("adminLoggedIn") !== "true"){
+
+  const username = prompt("Enter Admin ID:");
+  const password = prompt("Enter Password:");
+
+  if(username === ADMIN_USER && password === ADMIN_PASS){
+
+    localStorage.setItem("adminLoggedIn", "true");
+
+  } else {
+
+    alert("❌ ACCESS DENIED!");
+
+    window.location.href = "index.html";
+
+  }
+
+}
+
+// LOGOUT
+function logout(){
+
+  localStorage.removeItem("adminLoggedIn");
+
+  alert("🔒 Logged out successfully.");
+
+  window.location.href = "index.html";
+
+}
+
+</script>
 
 <script src="nav.js"></script>
 
+<!-- =========================
+ADMIN PAGE
+========================= -->
+
 <div class="admin-wrap">
 
+  <!-- HEADER -->
   <div class="admin-header reveal">
-    <div class="section-label">Back Office</div>
-    <h1>ADMIN PANEL</h1>
-    <p>Manage your product catalog. Changes appear instantly in the store.</p>
-  </div>
 
-  <div class="admin-grid">
-
-    <!-- ADD / EDIT FORM -->
-    <div class="admin-form-card reveal">
-      <h2 id="formTitle">Add New Product</h2>
-      <form id="productForm">
-        <input type="hidden" id="editIndex" value="-1">
-
-        <div class="form-group">
-          <label>Product Name *</label>
-          <input type="text" id="pName" placeholder="e.g. iPhone 14 Pro" required>
-        </div>
-        <div class="form-group">
-          <label>Price (USD) *</label>
-          <input type="number" id="pPrice" placeholder="e.g. 750" required min="0" step="0.01">
-        </div>
-        <div class="form-group">
-          <label>Image URL or Path *</label>
-          <input type="text" id="pImage" placeholder="images/product.jpg or https://..." required>
-        </div>
-        <div class="form-group">
-          <label>Category</label>
-          <select id="pCategory">
-            <option value="smartphone">Smartphone</option>
-            <option value="laptop">Laptop</option>
-            <option value="accessory">Accessory</option>
-            <option value="gadget">Gadget</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Description</label>
-          <textarea id="pDesc" rows="3" placeholder="Short product description…" style="resize:vertical;"></textarea>
-        </div>
-        <div class="form-group">
-          <label>Stock Quantity *</label>
-          <input type="number" id="pStock" placeholder="e.g. 10" required min="0">
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;">
-          <span id="submitLabel">+ Add Product</span>
-        </button>
-        <button type="button" id="cancelEdit" class="btn btn-dark btn-sm" style="width:100%;justify-content:center;margin-top:8px;display:none;">
-          Cancel Edit
-        </button>
-      </form>
+    <div class="section-label">
+      Back Office
     </div>
 
-    <!-- PRODUCTS TABLE -->
+    <h1>ADMIN PANEL</h1>
+
+    <p>
+      Manage your product catalog.
+      Changes appear instantly in the store.
+    </p>
+
+    <!-- ADMIN INFOS -->
+    <div style="
+      margin-top:20px;
+      padding:14px 18px;
+      background:rgba(29,140,248,0.08);
+      border:1px solid rgba(29,140,248,0.2);
+      border-radius:12px;
+      display:inline-block;
+      font-size:13px;
+      color:var(--muted);
+    ">
+
+      🔐 Logged in as:
+      <strong style="color:var(--blue);">
+        DTSADMIN
+      </strong>
+
+    </div>
+
+    <!-- LOGOUT BUTTON -->
+    <div style="margin-top:18px;">
+
+      <button
+        onclick="logout()"
+        class="btn btn-dark btn-sm"
+      >
+        🔒 Logout
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- GRID -->
+  <div class="admin-grid">
+
+    <!-- =========================
+    PRODUCT FORM
+    ========================= -->
+
+    <div class="admin-form-card reveal">
+
+      <h2 id="formTitle">
+        Add New Product
+      </h2>
+
+      <form id="productForm">
+
+        <input
+          type="hidden"
+          id="editIndex"
+          value="-1"
+        >
+
+        <!-- PRODUCT NAME -->
+        <div class="form-group">
+
+          <label>Product Name *</label>
+
+          <input
+            type="text"
+            id="pName"
+            placeholder="e.g. iPhone 14 Pro"
+            required
+          >
+
+        </div>
+
+        <!-- PRICE -->
+        <div class="form-group">
+
+          <label>Price (USD) *</label>
+
+          <input
+            type="number"
+            id="pPrice"
+            placeholder="e.g. 750"
+            required
+            min="0"
+            step="0.01"
+          >
+
+        </div>
+
+        <!-- IMAGE -->
+        <div class="form-group">
+
+          <label>Image URL or Path *</label>
+
+          <input
+            type="text"
+            id="pImage"
+            placeholder="images/product.jpg or https://..."
+            required
+          >
+
+        </div>
+
+        <!-- CATEGORY -->
+        <div class="form-group">
+
+          <label>Category</label>
+
+          <select id="pCategory">
+
+            <option value="smartphone">
+              Smartphone
+            </option>
+
+            <option value="laptop">
+              Laptop
+            </option>
+
+            <option value="accessory">
+              Accessory
+            </option>
+
+            <option value="gadget">
+              Gadget
+            </option>
+
+            <option value="other">
+              Other
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- DESCRIPTION -->
+        <div class="form-group">
+
+          <label>Description</label>
+
+          <textarea
+            id="pDesc"
+            rows="3"
+            placeholder="Short product description…"
+            style="resize:vertical;"
+          ></textarea>
+
+        </div>
+
+        <!-- STOCK -->
+        <div class="form-group">
+
+          <label>Stock Quantity *</label>
+
+          <input
+            type="number"
+            id="pStock"
+            placeholder="e.g. 10"
+            required
+            min="0"
+          >
+
+        </div>
+
+        <!-- BUTTONS -->
+        <button
+          type="submit"
+          class="btn btn-primary"
+          style="
+            width:100%;
+            justify-content:center;
+            padding:14px;
+          "
+        >
+
+          <span id="submitLabel">
+            + Add Product
+          </span>
+
+        </button>
+
+        <button
+          type="button"
+          id="cancelEdit"
+          class="btn btn-dark btn-sm"
+          style="
+            width:100%;
+            justify-content:center;
+            margin-top:8px;
+            display:none;
+          "
+        >
+          Cancel Edit
+        </button>
+
+      </form>
+
+    </div>
+
+    <!-- =========================
+    PRODUCTS TABLE
+    ========================= -->
+
     <div class="admin-table-wrap reveal reveal-d2">
-      <h2>Products List <span id="productCount" style="font-size:14px;font-weight:400;color:var(--muted);margin-left:8px;"></span></h2>
+
+      <h2>
+        Products List
+
+        <span
+          id="productCount"
+          style="
+            font-size:14px;
+            font-weight:400;
+            color:var(--muted);
+            margin-left:8px;
+          "
+        ></span>
+
+      </h2>
+
       <div style="overflow-x:auto;">
+
         <table>
+
           <thead>
+
             <tr>
               <th>Name</th>
               <th>Category</th>
@@ -79,32 +305,103 @@
               <th>Stock</th>
               <th>Actions</th>
             </tr>
+
           </thead>
+
           <tbody id="productTable">
-            <tr><td colspan="5" style="color:var(--muted);text-align:center;padding:30px;">No products yet. Add your first product.</td></tr>
+
+            <tr>
+
+              <td colspan="5"
+                style="
+                  color:var(--muted);
+                  text-align:center;
+                  padding:30px;
+                "
+              >
+                No products yet.
+                Add your first product.
+              </td>
+
+            </tr>
+
           </tbody>
+
         </table>
+
       </div>
+
     </div>
 
   </div>
 
-  <!-- DANGER ZONE -->
-  <div style="margin-top:50px;padding:24px;background:rgba(242,54,69,0.05);border:1px solid rgba(242,54,69,0.15);border-radius:14px;" class="reveal">
-    <h3 style="font-size:15px;margin-bottom:10px;color:var(--red);">⚠️ Danger Zone</h3>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">This will permanently delete ALL products from the store. This action cannot be undone.</p>
-    <button class="btn btn-sm" onclick="clearAll()" style="background:rgba(242,54,69,0.15);color:var(--red);border:1px solid rgba(242,54,69,0.3);">
+  <!-- =========================
+  DANGER ZONE
+  ========================= -->
+
+  <div
+    style="
+      margin-top:50px;
+      padding:24px;
+      background:rgba(242,54,69,0.05);
+      border:1px solid rgba(242,54,69,0.15);
+      border-radius:14px;
+    "
+    class="reveal"
+  >
+
+    <h3
+      style="
+        font-size:15px;
+        margin-bottom:10px;
+        color:var(--red);
+      "
+    >
+      ⚠️ Danger Zone
+    </h3>
+
+    <p
+      style="
+        font-size:13px;
+        color:var(--muted);
+        margin-bottom:16px;
+      "
+    >
+      This will permanently delete ALL products
+      from the store.
+      This action cannot be undone.
+    </p>
+
+    <button
+      class="btn btn-sm"
+      onclick="clearAll()"
+      style="
+        background:rgba(242,54,69,0.15);
+        color:var(--red);
+        border:1px solid rgba(242,54,69,0.3);
+      "
+    >
       🗑️ Clear All Products
     </button>
+
   </div>
 
 </div>
 
 <script src="footer.js"></script>
 <script src="cart.js"></script>
-<script>
-let products = JSON.parse(localStorage.getItem('products')) || [];
 
+<!-- =========================
+ADMIN JAVASCRIPT
+========================= -->
+
+<script>
+
+let products = JSON.parse(
+  localStorage.getItem('products')
+) || [];
+
+// ELEMENTS
 const table        = document.getElementById('productTable');
 const form         = document.getElementById('productForm');
 const formTitle    = document.getElementById('formTitle');
@@ -112,100 +409,246 @@ const submitLabel  = document.getElementById('submitLabel');
 const cancelBtn    = document.getElementById('cancelEdit');
 const countEl      = document.getElementById('productCount');
 
-function save() {
-  localStorage.setItem('products', JSON.stringify(products));
+// SAVE
+function save(){
+
+  localStorage.setItem(
+    'products',
+    JSON.stringify(products)
+  );
+
 }
 
-function render() {
+// RENDER
+function render(){
+
   countEl.textContent = `(${products.length})`;
-  if (products.length === 0) {
-    table.innerHTML = '<tr><td colspan="5" style="color:var(--muted);text-align:center;padding:30px;">No products yet.</td></tr>';
+
+  if(products.length === 0){
+
+    table.innerHTML = `
+      <tr>
+        <td colspan="5"
+          style="
+            color:var(--muted);
+            text-align:center;
+            padding:30px;
+          "
+        >
+          No products yet.
+        </td>
+      </tr>
+    `;
+
     return;
+
   }
+
   table.innerHTML = products.map((p, i) => `
+
     <tr>
-      <td><strong>${p.name}</strong></td>
-      <td><span style="background:rgba(29,140,248,0.1);color:var(--blue);padding:3px 10px;border-radius:4px;font-size:12px;">${p.category || '—'}</span></td>
-      <td style="font-weight:700;">$${parseFloat(p.price).toFixed(2)}</td>
-      <td>${p.stock}</td>
+
       <td>
-        <div class="tbl-actions">
-          <button class="btn-edit" onclick="startEdit(${i})">Edit</button>
-          <button class="btn-del"  onclick="deleteProduct(${i})">Delete</button>
-        </div>
+        <strong>${p.name}</strong>
       </td>
+
+      <td>
+        <span
+          style="
+            background:rgba(29,140,248,0.1);
+            color:var(--blue);
+            padding:3px 10px;
+            border-radius:4px;
+            font-size:12px;
+          "
+        >
+          ${p.category || '—'}
+        </span>
+      </td>
+
+      <td style="font-weight:700;">
+        $${parseFloat(p.price).toFixed(2)}
+      </td>
+
+      <td>
+        ${p.stock}
+      </td>
+
+      <td>
+
+        <div class="tbl-actions">
+
+          <button
+            class="btn-edit"
+            onclick="startEdit(${i})"
+          >
+            Edit
+          </button>
+
+          <button
+            class="btn-del"
+            onclick="deleteProduct(${i})"
+          >
+            Delete
+          </button>
+
+        </div>
+
+      </td>
+
     </tr>
+
   `).join('');
+
 }
 
 render();
 
-form.addEventListener('submit', function(e) {
+// FORM SUBMIT
+form.addEventListener('submit', function(e){
+
   e.preventDefault();
-  const editIdx = parseInt(document.getElementById('editIndex').value);
+
+  const editIdx = parseInt(
+    document.getElementById('editIndex').value
+  );
+
   const product = {
-    name:     document.getElementById('pName').value.trim(),
-    price:    parseFloat(document.getElementById('pPrice').value),
-    image:    document.getElementById('pImage').value.trim(),
-    category: document.getElementById('pCategory').value,
-    desc:     document.getElementById('pDesc').value.trim(),
-    stock:    parseInt(document.getElementById('pStock').value),
+
+    name:
+      document.getElementById('pName').value.trim(),
+
+    price:
+      parseFloat(
+        document.getElementById('pPrice').value
+      ),
+
+    image:
+      document.getElementById('pImage').value.trim(),
+
+    category:
+      document.getElementById('pCategory').value,
+
+    desc:
+      document.getElementById('pDesc').value.trim(),
+
+    stock:
+      parseInt(
+        document.getElementById('pStock').value
+      ),
+
   };
 
-  if (editIdx >= 0) {
+  // UPDATE
+  if(editIdx >= 0){
+
     products[editIdx] = product;
+
     resetForm();
-    showToast('✏️ Product updated!');
-  } else {
+
+    alert('✏️ Product updated!');
+
+  }
+
+  // ADD
+  else {
+
     products.push(product);
-    showToast('✅ Product added to store!');
+
+    alert('✅ Product added to store!');
+
   }
 
   save();
   render();
+
   this.reset();
+
 });
 
-function startEdit(i) {
+// EDIT
+function startEdit(i){
+
   const p = products[i];
-  document.getElementById('editIndex').value  = i;
-  document.getElementById('pName').value      = p.name;
-  document.getElementById('pPrice').value     = p.price;
-  document.getElementById('pImage').value     = p.image;
-  document.getElementById('pCategory').value  = p.category || 'other';
-  document.getElementById('pDesc').value      = p.desc || '';
-  document.getElementById('pStock').value     = p.stock;
-  formTitle.textContent    = 'Edit Product';
-  submitLabel.textContent  = '💾 Save Changes';
-  cancelBtn.style.display  = 'block';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  document.getElementById('editIndex').value = i;
+  document.getElementById('pName').value     = p.name;
+  document.getElementById('pPrice').value    = p.price;
+  document.getElementById('pImage').value    = p.image;
+  document.getElementById('pCategory').value = p.category || 'other';
+  document.getElementById('pDesc').value     = p.desc || '';
+  document.getElementById('pStock').value    = p.stock;
+
+  formTitle.textContent   = 'Edit Product';
+  submitLabel.textContent = '💾 Save Changes';
+
+  cancelBtn.style.display = 'block';
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
 }
 
-function resetForm() {
+// RESET
+function resetForm(){
+
   document.getElementById('editIndex').value = '-1';
-  formTitle.textContent    = 'Add New Product';
-  submitLabel.textContent  = '+ Add Product';
-  cancelBtn.style.display  = 'none';
+
+  formTitle.textContent   = 'Add New Product';
+
+  submitLabel.textContent = '+ Add Product';
+
+  cancelBtn.style.display = 'none';
+
   form.reset();
+
 }
 
-cancelBtn.addEventListener('click', resetForm);
+cancelBtn.addEventListener(
+  'click',
+  resetForm
+);
 
-function deleteProduct(i) {
-  if (!confirm(`Delete "${products[i].name}"? This cannot be undone.`)) return;
+// DELETE
+function deleteProduct(i){
+
+  if(
+    !confirm(
+      `Delete "${products[i].name}"?`
+    )
+  ) return;
+
   products.splice(i, 1);
+
   save();
   render();
-  showToast('🗑️ Product deleted.');
+
+  alert('🗑️ Product deleted.');
+
 }
 
-function clearAll() {
-  if (!confirm('Delete ALL products? This cannot be undone!')) return;
+// CLEAR ALL
+function clearAll(){
+
+  if(
+    !confirm(
+      'Delete ALL products?'
+    )
+  ) return;
+
   products = [];
+
   save();
+
   render();
-  showToast('🗑️ All products cleared.');
+
+  alert('🗑️ All products cleared.');
+
 }
+
 </script>
+
 </body>
 </html>
