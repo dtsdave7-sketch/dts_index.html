@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>About & Services | DTS Multiservices</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    .hero-about{
+      padding:120px 80px 90px;
+      text-align:center;
+      background:linear-gradient(
+        135deg,
+        #0f172a,
+        #111827
+      );
+      color:#fff;
+    }
+
+    .hero-about h1{
+      font-size:68px;
+      margin-bottom:20px;
+      font-weight:800;
+      letter-spacing:2px;
+    }
+
+    .hero-about p{
+      max-width:850px;
+      margin:auto;
+      color:rgba(255,255,255,.75);
+      line-height:1.8;
+      font-size:17px;
+    }
+
+    .section{
+      padding:90px 80px;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:48px;
+      margin-bottom:12px;
+    }
+
+    .section-title p{
+      color:#777;
+      max-width:700px;
+      margin:auto;
+      line-height:1.7;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:30px;
+      margin-top:50px;
+    }
+
+    .about-card{
+      background:#fff;
+      border-radius:24px;
+      padding:35px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+      transition:.3s;
+    }
+
+    .about-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .about-card h3{
+      margin-bottom:14px;
+      font-size:24px;
+    }
+
+    .about-card p{
+      color:#666;
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:28px;
+      margin-top:60px;
+    }
+
+    .service-card{
+      background:#fff;
+      border-radius:24px;
+      padding:35px;
+      text-align:center;
+      box-shadow:0 10px 35px rgba(0,0,0,.08);
+      transition:.35s;
+      border:1px solid rgba(0,0,0,.05);
+    }
+
+    .service-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .service-icon{
+      font-size:52px;
+      margin-bottom:20px;
+    }
+
+    .service-card h3{
+      font-size:24px;
+      margin-bottom:14px;
+    }
+
+    .service-card p{
+      color:#666;
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .stats-section{
+      background:#0f172a;
+      color:#fff;
+      padding:80px;
+      text-align:center;
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:30px;
+      margin-top:50px;
+    }
+
+    .stat-box h2{
+      font-size:54px;
+      margin-bottom:10px;
+      color:#1d8cf8;
+    }
+
+    .stat-box p{
+      color:rgba(255,255,255,.7);
+      font-size:15px;
+    }
+
+    .cta-section{
+      padding:100px 80px;
+      text-align:center;
+      background:#f8fafc;
+    }
+
+    .cta-section h2{
+      font-size:52px;
+      margin-bottom:18px;
+    }
+
+    .cta-section p{
+      color:#666;
+      max-width:700px;
+      margin:auto auto 30px;
+      line-height:1.8;
+    }
+
+    .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px 34px;
+      background:#111827;
+      color:#fff;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+      transition:.3s;
+    }
+
+    .cta-btn:hover{
+      transform:translateY(-4px);
+      opacity:.92;
+    }
+
+    @media(max-width:768px){
+
+      .hero-about,
+      .section,
+      .stats-section,
+      .cta-section{
+        padding:80px 24px;
+      }
+
+      .hero-about h1{
+        font-size:46px;
+      }
+
+      .section-title h2,
+      .cta-section h2{
+        font-size:36px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<script src="nav.js"></script>
+
+<!-- HERO -->
+<section class="hero-about">
+
+  <div class="section-label">
+    DTS MULTISERVICES
+  </div>
+
+  <h1>ABOUT US</h1>
+
+  <p>
+    DTS Multiservices is a modern Haitian company
+    dedicated to delivering high-quality technology,
+    business, and lifestyle solutions.
+    We combine innovation, professionalism,
+    and customer satisfaction to provide reliable
+    services tailored to individuals and businesses.
+  </p>
+
+</section>
+
+<!-- ABOUT -->
+<section class="section">
+
+  <div class="section-title">
+
+    <h2>Who We Are</h2>
+
+    <p>
+      We are committed to excellence,
+      innovation, and trusted customer service.
+      Our goal is to simplify everyday needs
+      through modern and professional solutions.
+    </p>
+
+  </div>
+
+  <div class="about-grid">
+
+    <div class="about-card">
+
+      <h3>💡 Our Vision</h3>
+
+      <p>
+        To become one of Haiti’s leading
+        multiservice companies by offering
+        innovative and dependable solutions
+        that improve people’s daily lives.
+      </p>
+
+    </div>
+
+    <div class="about-card">
+
+      <h3>🎯 Our Mission</h3>
+
+      <p>
+        To provide excellent services with
+        professionalism, quality, and integrity
+        while building long-term trust with
+        every customer.
+      </p>
+
+    </div>
+
+    <div class="about-card">
+
+      <h3>⭐ Our Values</h3>
+
+      <p>
+        Excellence, honesty, customer satisfaction,
+        innovation, teamwork, and commitment
+        are the core values that guide
+        everything we do.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SERVICES -->
+<section class="section" style="background:#f8fafc;">
+
+  <div class="section-title">
+
+    <h2>Our Services</h2>
+
+    <p>
+      DTS Multiservices offers a wide range
+      of professional services designed to
+      meet modern personal and business needs.
+    </p>
+
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+
+      <div class="service-icon">💻</div>
+
+      <h3>IT & Tech Services</h3>
+
+      <p>
+        Computer repair, software installation,
+        technical support, networking,
+        troubleshooting, and digital solutions.
+      </p>
+
+    </div>
+
+    <div class="service-card">
+
+      <div class="service-icon">📱</div>
+
+      <h3>Electronics Store</h3>
+
+      <p>
+        Smartphones, accessories, gadgets,
+        laptops, and quality electronics
+        at competitive prices.
+      </p>
+
+    </div>
+
+    <div class="service-card">
+
+      <div class="service-icon">💈</div>
+
+      <h3>Barbershop Services</h3>
+
+      <p>
+        Professional haircuts,
+        grooming, beard styling,
+        and premium customer care.
+      </p>
+
+    </div>
+
+    <div class="service-card">
+
+      <div class="service-icon">💅</div>
+
+      <h3>Beauty & Nails</h3>
+
+      <p>
+        Nail care, beauty treatments,
+        modern styling,
+        and personalized beauty services.
+      </p>
+
+    </div>
+
+    <div class="service-card">
+
+      <div class="service-icon">🚚</div>
+
+      <h3>Delivery Services</h3>
+
+      <p>
+        Fast and reliable delivery
+        solutions across Haiti
+        for products and customer orders.
+      </p>
+
+    </div>
+
+    <div class="service-card">
+
+      <div class="service-icon">🛒</div>
+
+      <h3>Online Shopping</h3>
+
+      <p>
+        Secure online ordering system
+        with professional support
+        and convenient checkout experience.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+
+  <h2 style="font-size:48px;">
+    Why Choose DTS?
+  </h2>
+
+  <div class="stats-grid">
+
+    <div class="stat-box">
+
+      <h2>100%</h2>
+
+      <p>
+        Customer Satisfaction Focus
+      </p>
+
+    </div>
+
+    <div class="stat-box">
+
+      <h2>24/7</h2>
+
+      <p>
+        Customer Assistance
+      </p>
+
+    </div>
+
+    <div class="stat-box">
+
+      <h2>Fast</h2>
+
+      <p>
+        Reliable Delivery & Support
+      </p>
+
+    </div>
+
+    <div class="stat-box">
+
+      <h2>Pro</h2>
+
+      <p>
+        Modern Professional Services
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+
+  <h2>Ready To Work With Us?</h2>
+
+  <p>
+    DTS Multiservices is ready to help you
+    with professional, reliable,
+    and innovative services designed
+    to meet your needs.
+  </p>
+
+  <a
+    href="contact.html"
+    class="cta-btn"
+  >
+    Contact Us →
+  </a>
+
+</section>
+
+<script src="footer.js"></script>
+
+</body>
+</html>
