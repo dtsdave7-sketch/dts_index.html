@@ -5,9 +5,7 @@
 (function () {
   const footerHTML = `
   <footer>
-  <a href="index.html" class="logo">
-    <img src="images/logodtss.png">
-</a>
+ 
     <div class="footer-grid">
       <div class="footer-brand">
         <div class="logo">D<span>T</span>S</div>
