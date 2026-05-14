@@ -21,7 +21,7 @@
       ${navLink('index.html', 'Home')}
       ${navLink('store.html', 'Store')}
       ${navLink('news.html', 'News')}
-      ${navLink('checkout.html', 'Checkout')}
+    
       <li><a href="admin.html" style="color:#6b7a99;font-size:13px;">Admin</a></li>
     </ul>
     <div class="nav-actions">
