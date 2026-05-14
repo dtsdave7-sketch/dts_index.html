@@ -743,7 +743,19 @@ footer{
   padding: 80px 80px 36px;
   position: relative;
   overflow: hidden;
+   footer p,
+footer a,
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6,
+footer span{
+  color: #000 !important;
 }
+}
+
 footer::before {
   content: '';
   position: absolute; top: 0; left: 0; right: 0;
