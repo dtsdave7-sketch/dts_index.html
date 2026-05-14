@@ -17,6 +17,7 @@
           <li><a href="store.html">Store</a></li>
           <li><a href="news.html">News</a></li>
           <li><a href="checkout.html">Checkout</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
       </div>
       <div class="footer-col">
